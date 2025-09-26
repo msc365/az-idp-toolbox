@@ -1,20 +1,71 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: "[REQUEST]"
-labels: enhancement
+name: "Feature request \U0001F680"
+description: Suggest an idea for this project
+title: 'Feature Request: '
+labels: ['needs triage :wave:', 'enhancement :sparkles:']
 assignees: msc365admin
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+body:
+- type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out a feature request.
+- type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the proposed feature.
+      options:
+        - label: I have searched the existing issues
+          required: true
+- type: dropdown
+    attributes:
+      label: Function? (Optional)
+      description: Which function is related?
+      multiple: false
+      options:
+        - New-RandomPassword
+        - Other
+        - Not relevant
+    validations:
+      required: false
+- type: dropdown
+    attributes:
+      label: Infra as Code Type? (Optional)
+      description: Are you using Bicep or Terraform?
+      multiple: false
+      options:
+        - Bicep
+        - Terraform
+        - Both
+        - Not relevant
+    validations:
+      required: false
+- type: textarea
+    id: usecase
+    attributes:
+      label: Use Case (Required)
+      description: Describe the use case for this feature?
+    validations:
+      required: true
+- type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution (Required)
+      description: Describe how this feature could be implemented?
+    validations:
+      required: true
+- type: textarea
+    id: facts
+    attributes:
+      label: Important Factoids (Optional)
+      description: |
+        Are there anything atypical about your accounts that we should know? For example: Running in a Azure China/Germany/Government?
+- type: textarea
+    id: references
+    attributes:
+      label: References (Optional)
+      description: |
+        Information about referencing Github Issues: <https://help.github.com/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests>
+        Are there any other GitHub issues (open or closed) or pull requests that should be linked here? Such as vendor documentation?

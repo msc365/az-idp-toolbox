@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "bewhite.psrule-vscode",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-azuretools.vscode-azure-github-copilot",
+        "ms-azuretools.vscode-bicep",
+        "ms-vscode.powershell",
+        "pspester.pester-test",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "yzhang.markdown-all-in-one"
+    ]
+}
