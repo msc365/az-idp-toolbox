@@ -13,19 +13,19 @@ body:
           required: true
   - type: input
     attributes:
-      label: PowerShell Module Version (Optional)
-      description: Please provide the version of the PowerShell Module you are using if relevant.
+      label: PowerShell Version
+      description: Please provide the version of the PowerShell you are using if relevant.
     validations:
       required: false
   - type: input
     attributes:
-      label: IDP Toolbox Version (Required)
+      label: Azure IDP Toolbox version
       description: Please provide the version of the IPD Toolbox Module you are using.
     validations:
       required: true
   - type: dropdown
     attributes:
-      label: Function? (Required)
+      label: Related function
       description: Which function are you using?
       multiple: false
       options:
@@ -36,7 +36,7 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: Infra as Code Type? (Optional)
+      label: Infra as Code type
       description: Are you using Bicep or Terraform?
       multiple: false
       options:
@@ -49,14 +49,14 @@ body:
   - type: textarea
     id: inputs
     attributes:
-      label: Input arguments of the Az.Idp.Toolbox Module (Optional)
+      label: Input arguments of the related function
       description: Please provide any relevant input arguments of the Az.Idp.Toolbox Module that can reproduce the issue.
     validations:
       required: false
   - type: textarea
     id: debug
     attributes:
-      label: Debug Output (Optional)
+      label: Debug output
       description: |
         For long debug logs please provide a link to a GitHub Gist containing the complete debug output. Please do NOT paste the debug output in the issue; just paste a link to the Gist.
       render: shell
@@ -65,33 +65,33 @@ body:
   - type: textarea
     id: expected
     attributes:
-      label: Expected Behavior (Required)
+      label: Expected behavior
       description: What should have happened?
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
-      label: Actual Behavior (Required)
+      label: Actual behavior
       description: What actually happened?
     validations:
       required: true
   - type: textarea
     id: reproduce
     attributes:
-      label: Steps to Reproduce (Optional)
+      label: Steps to reproduce
       description: |
         Please list the steps required to reproduce the issue, e.g.:
   - type: textarea
     id: facts
     attributes:
-      label: Important Factoids (Optional)
+      label: Important factoids
       description: |
         Are there anything atypical about your accounts that we should know? For example: Running in a Azure China/Germany/Government?
   - type: textarea
     id: references
     attributes:
-      label: References (Optional)
+      label: References
       description: |
         Information about referencing Github Issues: <https://help.github.com/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests>
         Are there any other GitHub issues (open or closed) or pull requests that should be linked here? Such as vendor documentation?
