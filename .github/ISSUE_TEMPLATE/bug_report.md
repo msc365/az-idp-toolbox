@@ -1,9 +1,9 @@
 ---
 name: "Bug report \U0001F41B"
-about: Report errors or unexpected behavior
-title: "Bug: "
+about: "Report errors or unexpected behavior"
+title: "[BUG] "
 labels: ['needs triage :wave:', 'bug :beetle:']
-assignees: msc365admin
+---
 body:
 - type: markdown
     attributes:
