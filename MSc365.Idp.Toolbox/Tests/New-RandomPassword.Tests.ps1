@@ -4,7 +4,7 @@
 
 BeforeAll {
     # Import the module for testing
-    $ModuleName = 'Az.Idp.Toolbox'
+    $ModuleName = 'MSc365.Idp.Toolbox'
     $ModulePath = Split-Path -Parent $PSScriptRoot
 
     # Remove module if already loaded
@@ -16,19 +16,19 @@ BeforeAll {
     Import-Module "$ModulePath" -Force -ErrorAction Stop
 }
 
-Describe 'Module: Az.Idp.Toolbox' -Tags 'Module' {
+Describe 'Module: MSc365.Idp.Toolbox' -Tags 'Module' {
     Context 'Module Import' {
         It 'Should import successfully' {
-            Get-Module -Name 'Az.Idp.Toolbox' | Should -Not -BeNullOrEmpty
+            Get-Module -Name 'MSc365.Idp.Toolbox' | Should -Not -BeNullOrEmpty
         }
 
         It 'Should export expected functions' {
-            $ExportedFunctions = (Get-Module -Name 'Az.Idp.Toolbox').ExportedFunctions.Keys
+            $ExportedFunctions = (Get-Module -Name 'MSc365.Idp.Toolbox').ExportedFunctions.Keys
             $ExportedFunctions | Should -Contain 'New-RandomPassword'
         }
 
         It 'Should have valid manifest' {
-            Test-ModuleManifest -Path "$ModulePath\Az.Idp.Toolbox.psd1" | Should -Not -BeNullOrEmpty
+            Test-ModuleManifest -Path "$ModulePath\MSc365.Idp.Toolbox.psd1" | Should -Not -BeNullOrEmpty
         }
     }
 }
@@ -135,7 +135,7 @@ Describe 'Function: New-RandomPassword' -Tags 'Function' {
 
 AfterAll {
     # Clean up
-    if (Get-Module -Name 'Az.Idp.Toolbox' -ErrorAction SilentlyContinue) {
-        Remove-Module -Name 'Az.Idp.Toolbox' -Force
+    if (Get-Module -Name 'MSc365.Idp.Toolbox' -ErrorAction SilentlyContinue) {
+        Remove-Module -Name 'MSc365.Idp.Toolbox' -Force
     }
 }

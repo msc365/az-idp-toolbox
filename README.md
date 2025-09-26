@@ -1,8 +1,8 @@
 # Internal Developer Platform (IDP) Toolbox for Azure
 
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
-[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/az.idp.toolbox.svg)](https://www.powershellgallery.com/packages/az.idp.toolbox)
-[![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/az.idp.toolbox.svg)](https://www.powershellgallery.com/packages/az.idp.toolbox)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
+[![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 
 An experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud.
 
@@ -15,10 +15,10 @@ An experimental PowerShell module providing a comprehensive set of tools for Int
 
 ```powershell
 # Install for current user
-Install-Module -Name Az.Idp.Toolbox -Scope CurrentUser -AllowPrerelease -Force
+Install-Module -Name MSc365.Idp.Toolbox -Scope CurrentUser -AllowPrerelease -Force
 
 # Install for all users (requires admin)
-Install-Module -Name Az.Idp.Toolbox -Scope AllUsers -AllowPrerelease -Force
+Install-Module -Name MSc365.Idp.Toolbox -Scope AllUsers -AllowPrerelease -Force
 ```
 
 ### From Source
@@ -29,10 +29,10 @@ git clone https://github.com/msc365/az-idp-toolbox.git
 cd az-idp-toolbox
 
 # Import the module
-Import-Module -Name .\Az.Idp.Toolbox
+Import-Module -Name .\MSc365.Idp.Toolbox
 
 # Verify the module
-Get-Module -Name 'Az.Idp.Toolbox'
+Get-Module -Name 'MSc365.Idp.Toolbox'
 ```
 
 <details>
@@ -41,7 +41,7 @@ Get-Module -Name 'Az.Idp.Toolbox'
 ```text
 ModuleType Version    PreRelease Name            ExportedCommands
 ---------- -------    ---------- ----            ----------------
-Script     0.1.0      prev1      Az.Idp.Toolbox  New-RandomPassword
+Script     0.1.0      prev1      MSc365.Idp.Toolbox  New-RandomPassword
 ```
 </details>
 
@@ -49,7 +49,7 @@ Script     0.1.0      prev1      Az.Idp.Toolbox  New-RandomPassword
 
 ```powershell
 # Import the module
-Import-Module -Name Az.Idp.Toolbox
+Import-Module -Name MSc365.Idp.Toolbox
 
 # Generate a random password with default settings (16 characters, all character types)
 $defaultPassword = New-RandomPassword
@@ -74,7 +74,7 @@ ConvertFrom-SecureString -SecureString $customPassword -AsPlainText
 
 ```powershell
 # Run tests
-Invoke-Pester -Path .\Az.Idp.Toolbox\Tests\
+Invoke-Pester -Path .\MSc365.Idp.Toolbox\Tests\
 
 # Build module
 .\build\build.ps1
