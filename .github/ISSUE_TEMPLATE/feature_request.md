@@ -1,12 +1,9 @@
 ---
 name: "Feature request \U0001F680"
-description: Suggest an idea for this project
-title: 'Feature Request: '
+about: "Suggest an idea for this project"
+title: "[Request] " 
 labels: ['needs triage :wave:', 'enhancement :sparkles:']
-assignees: msc365admin
-
 ---
-
 body:
 - type: markdown
     attributes:
