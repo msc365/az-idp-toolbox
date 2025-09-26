@@ -13,7 +13,7 @@ body:
           required: true
   - type: input
     attributes:
-      label: PowerShell Version
+      label: PowerShell version
       description: Please provide the version of the PowerShell you are using if relevant.
     validations:
       required: false
@@ -81,18 +81,4 @@ body:
     attributes:
       label: Steps to reproduce
       description: |
-        Please list the steps required to reproduce the issue, e.g.:
-  - type: textarea
-    id: facts
-    attributes:
-      label: Important factoids
-      description: |
-        Are there anything atypical about your accounts that we should know? For example: Running in a Azure China/Germany/Government?
-  - type: textarea
-    id: references
-    attributes:
-      label: References
-      description: |
-        Information about referencing Github Issues: <https://help.github.com/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests>
-        Are there any other GitHub issues (open or closed) or pull requests that should be linked here? Such as vendor documentation?
-
+        Please list the steps required to reproduce the issue.
