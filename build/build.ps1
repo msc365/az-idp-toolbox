@@ -8,9 +8,6 @@ This script builds a PowerShell module, validates its manifest, runs tests, pack
 .PARAMETER Version
 The version to build, following semantic versioning (e.g., 1.0.0 or 1.0.0-beta1).
 
-.PARAMETER OutputPath
-The output directory for build artifacts. Defaults to '../output' relative to the script location.
-
 .PARAMETER Repository
 The repository to publish to. Defaults to 'PSGallery'.
 
@@ -33,14 +30,11 @@ param (
         HelpMessage = 'Version to build (e.g., 1.0.0, 1.0.0-rc1, 1.0.0-beta).')]
     [string]$Version,
 
-    [Parameter(HelpMessage = 'Output directory for build artifacts')]
-    [string]$OutputPath = ('{0}\..\output' -f $PSScriptRoot),
-
     [Parameter(HelpMessage = 'Repository to publish to, defaults: PSGallery')]
     [string]$Repository = 'PSGallery',
 
     [Parameter(HelpMessage = 'API Key for PowerShell Gallery')]
-    [string]$ApiKey,
+    [string]$ApiKey = $env:PSGalleryApiKey,
 
     [Parameter(HelpMessage = 'Publish to PowerShell Gallery')]
     [switch]$Publish
@@ -50,9 +44,12 @@ begin {
     Write-Debug ('{0} entered' -f $MyInvocation.MyCommand)
 
     # Module information
-    $moduleName = 'Az.Idp.Toolbox'
-    $modulePath = ('{0}\..\{1}' -f $PSScriptRoot, $moduleName)
-    $manifestPath = ('{0}\{1}.psd1' -f $modulePath, $moduleName)
+    $rootPath = (Get-Item -Path $PSScriptRoot).Parent.FullName
+
+    $moduleName = 'MSc365.Idp.Toolbox'
+    $modulePath = Join-Path -Path $rootPath -ChildPath $moduleName
+    $manifestPath = Join-Path -Path $modulePath -ChildPath ('{0}.psd1' -f $moduleName)
+    $outputPath = (Join-Path -Path $rootPath -ChildPath 'output')
 }
 
 process {
@@ -122,18 +119,33 @@ process {
         }
 
         # Create output directory
-        if (-not (Test-Path $OutputPath)) {
-            New-Item -Path $OutputPath -ItemType Directory -Force | Out-Null
+        if (-not (Test-Path $outputPath)) {
+            New-Item -Path $outputPath -ItemType Directory -Force | Out-Null
         }
 
-        # Copy module files to output directory
-        $outputModulePath = ('{0}\{1}' -f $OutputPath, $moduleName)
-        if (Test-Path $outputModulePath) {
-            # Clean existing output
-            Remove-Item -Path $outputModulePath -Recurse -Force
+        # Clean up output directory
+        if (Test-Path $outputPath) {
+            Remove-Item -Path ('{0}\*' -f $outputPath) -Recurse -Force
         }
 
-        Copy-Item -Path $modulePath -Destination $outputModulePath -Recurse -Force
+        # Copy module files to output directory (excluding Tests folder)
+        $outputModulePath = ('{0}\{1}' -f $outputPath, $moduleName)
+
+        # Create the output module directory
+        New-Item -Path $outputModulePath -ItemType Directory -Force | Out-Null
+
+        # Build exclude list - always exclude Tests, conditionally exclude empty Private folder
+        $excludeList = @('Tests')
+        $privateFolderPath = Join-Path -Path $modulePath -ChildPath 'Private'
+        if ((Test-Path $privateFolderPath) -and ((Get-ChildItem -Path $privateFolderPath -Recurse).Count -eq 0)) {
+            $excludeList += 'Private'
+        }
+
+        # Copy all items except excluded folders
+        Get-ChildItem -Path $modulePath -Exclude $excludeList | ForEach-Object {
+            Copy-Item -Path $_.FullName -Destination $outputModulePath -Recurse -Force
+        }
+
         Write-Host '✓ Module files copied' -ForegroundColor Green
 
         # Validate final module
@@ -141,7 +153,7 @@ process {
         Write-Host '✓ Final module manifest is valid' -ForegroundColor Green
 
         # Package the module
-        Compress-Archive -Path ('{0}\*' -f $outputModulePath) -DestinationPath ('{0}\{1}.zip' -f $OutputPath, $moduleName) -Force
+        Compress-Archive -Path ('{0}\*' -f $outputModulePath) -DestinationPath ('{0}\{1}.zip' -f $outputPath, $moduleName) -Force
         Write-Host ('✓ Created module packaged: {0}.zip' -f $moduleName) -ForegroundColor Green
 
         # Publish to PowerShell Gallery
@@ -154,15 +166,11 @@ process {
                 Path        = $outputModulePath
                 Repository  = $Repository
                 NuGetApiKey = $ApiKey
-                Verbose     = $true
-                Force       = $true
             }
 
             # Add AllowPrerelease for prerelease versions
             Write-Host "Publishing to $Repository..." -ForegroundColor Yellow
             if ($isPrerelease) {
-                $publishParams.AllowPrerelease = $true
-
                 Write-Warning "Publishing PRERELEASE version $Version"
                 Write-Host 'Users will need to use -AllowPrerelease flag to install this version' -ForegroundColor Yellow
             }

@@ -24,14 +24,14 @@ All notable changes to this module will be documented in this file.
 
 ### Summary
 
-Initial preview release of the Az.Idp.Toolbox PowerShell module. This experimental module provides essential tools for Internal Developer Platforms (IDPs) on Azure cloud, starting with secure password generation capabilities.
+Initial preview release of the MSc365.Idp.Toolbox PowerShell module. This experimental module provides essential tools for Internal Developer Platforms (IDPs) on Azure cloud, starting with secure password generation capabilities.
 
 ### What's Changed
 - feat: Add README.md to document module usage, installation, and development guidelines
 - feat: Add initial changelog file to document module changes
 - feat: Add build script for PowerShell module with publishing capabilities
 - feat: Add New-RandomPassword function and corresponding tests
-- feat: Add module manifest and initial implementation for Az.Idp.Toolbox
+- feat: Add module manifest and initial implementation for MSc365.Idp.Toolbox
 - feat: Add assets, configuration, and support documentation
 - feat: Enhance issue templates for bug reports and feature requests
 - feat: New issue templates (#1)
