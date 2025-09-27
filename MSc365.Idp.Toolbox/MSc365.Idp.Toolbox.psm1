@@ -1,11 +1,11 @@
 ﻿#requires -Version 5.1
 
 # Get public and private function definition files
-$Public = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue)
-$Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue)
+$public = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue)
+$private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue)
 
 # Import all functions
-foreach ($import in @($Public + $Private)) {
+foreach ($import in @($public + $private)) {
     try {
         Write-Verbose "Importing $($import.FullName)"
         . $import.FullName
@@ -16,7 +16,7 @@ foreach ($import in @($Public + $Private)) {
 }
 
 # Export only public functions
-Export-ModuleMember -Function $Public.BaseName -Verbose:$false
+Export-ModuleMember -Function $public.BaseName -Verbose:$false
 
 # Module cleanup
 $ExecutionContext.SessionState.Module.OnRemove = {

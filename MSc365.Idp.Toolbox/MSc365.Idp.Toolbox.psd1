@@ -70,7 +70,7 @@
             ReleaseNotes             = 'https://github.com/msc365/az-idp-toolbox/blob/main/CHANGELOG.md'
 
             # Prerelease string of this module
-            Prerelease               = 'prev1'
+            Prerelease               = 'prev2'
 
             # Flag to indicate whether the module requires explicit user acceptance
             RequireLicenseAcceptance = $false
