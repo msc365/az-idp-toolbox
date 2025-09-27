@@ -15,30 +15,52 @@ function New-RandomPassword {
     .DESCRIPTION
     Creates a secure random password of specified length and optional characteristics.
 
-    .EXAMPLE
+    .PARAMETER Length
+    Length of the password to generate. Default is 16.
+
+    .PARAMETER IncludeLowercase
+    Include lowercase characters in the password.
+
+    .PARAMETER IncludeUppercase
+    Include uppercase characters in the password.
+
+    .PARAMETER IncludeNumeric
+    Include numeric characters in the password.
+
+    .PARAMETER IncludeSpecial
+    Include special characters in the password.
 
     .OUTPUTS
     System.Security.SecureString
 
     .EXAMPLE
+    $password = New-RandomPassword
+
+    Generates a 16-character password with all character types included by default.
+
+    .EXAMPLE
+    $password = New-RandomPassword -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
+
+    Generates a 20-character password with lowercase, uppercase, and numeric characters.
+
     #>
     [CmdletBinding()]
     [OutputType([System.Security.SecureString])]
     param (
-        [Parameter(HelpMessage = 'Length of the password to generate')]
+        [Parameter()]
         [ValidateRange(1, 256)]
         [int]$Length = 16,
 
-        [Parameter(HelpMessage = 'Include lowercase characters')]
+        [Parameter()]
         [switch]$IncludeLowercase,
 
-        [Parameter(HelpMessage = 'Include uppercase characters')]
+        [Parameter()]
         [switch]$IncludeUppercase,
 
-        [Parameter(HelpMessage = 'Include numeric characters')]
+        [Parameter()]
         [switch]$IncludeNumeric,
 
-        [Parameter(HelpMessage = 'Include special characters')]
+        [Parameter()]
         [switch]$IncludeSpecial
     )
 
