@@ -18,6 +18,21 @@ All notable changes to this module will be documented in this file.
 - _None_
 -->
 
+## [0.1.0-prev2] - 2025-09-27
+
+### Summary
+
+Bug fixes and improvements to the MSc365.Idp.Toolbox PowerShell module, including enhanced documentation, variable naming improvements, and version updates.
+
+### What's Changed
+- fix: Sanitized variable naming and syntax
+- fix: Enhance documentation for New-RandomPassword function parameters and examples
+- chore: Update prerelease version from 'prev1' to 'prev2'
+- chore: Update changelog for version 0.1.0-prev2
+
+### Breaking Changes
+- _None_
+
 <!-- markdownlint-disable MD024 -->
 
 ## [0.1.0-prev1] - 2025-09-26
