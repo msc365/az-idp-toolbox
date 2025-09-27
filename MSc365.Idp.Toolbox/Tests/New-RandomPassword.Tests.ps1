@@ -13,7 +13,7 @@ BeforeAll {
     }
 
     # Import the module
-    Import-Module "$ModulePath" -Force -ErrorAction Stop
+    Import-Module $ModulePath -Force -ErrorAction Stop
 }
 
 Describe 'Module: MSc365.Idp.Toolbox' -Tags 'Module' {
@@ -23,12 +23,12 @@ Describe 'Module: MSc365.Idp.Toolbox' -Tags 'Module' {
         }
 
         It 'Should export expected functions' {
-            $ExportedFunctions = (Get-Module -Name 'MSc365.Idp.Toolbox').ExportedFunctions.Keys
-            $ExportedFunctions | Should -Contain 'New-RandomPassword'
+            $exportedFunctions = (Get-Module -Name 'MSc365.Idp.Toolbox').ExportedFunctions.Keys
+            $exportedFunctions | Should -Contain 'New-RandomPassword'
         }
 
         It 'Should have valid manifest' {
-            Test-ModuleManifest -Path "$ModulePath\MSc365.Idp.Toolbox.psd1" | Should -Not -BeNullOrEmpty
+            Test-ModuleManifest -Path ('{0}\MSc365.Idp.Toolbox.psd1' -f $ModulePath) | Should -Not -BeNullOrEmpty
         }
     }
 }
@@ -80,16 +80,16 @@ Describe 'Function: New-RandomPassword' -Tags 'Function' {
 
     Context 'Length Specifications' {
         It 'Should generate password with specified length: <Length>' -TestCases @(
-            @{ Length = 8 }
-            @{ Length = 16 }
-            @{ Length = 32 }
-            @{ Length = 64 }
-            @{ Length = 128 }
+            @{ length = 8 }
+            @{ length = 16 }
+            @{ length = 32 }
+            @{ length = 64 }
+            @{ length = 128 }
         ) {
-            param($Length)
+            param($length)
 
-            $result = New-RandomPassword -Length $Length
-            $result.Length | Should -Be $Length
+            $result = New-RandomPassword -Length $length
+            $result.Length | Should -Be $length
             $result | Should -BeOfType 'System.Security.SecureString'
         }
     }
@@ -135,7 +135,7 @@ Describe 'Function: New-RandomPassword' -Tags 'Function' {
 
 AfterAll {
     # Clean up
-    if (Get-Module -Name 'MSc365.Idp.Toolbox' -ErrorAction SilentlyContinue) {
-        Remove-Module -Name 'MSc365.Idp.Toolbox' -Force
+    if (Get-Module -Name $ModuleName -ErrorAction SilentlyContinue) {
+        Remove-Module -Name $ModuleName -Force
     }
 }
