@@ -1,10 +1,11 @@
 # Internal Developer Platform (IDP) Toolbox for Azure
 
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/msc365/az-idp-toolbox?style=flat&logo=github)
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 [![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 
-An experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud.
+This is an experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud over time.
 
 > [!WARNING]
 > This module provides experimental features, allowing you to test and provide feedback on new functionalities before they become stable. These features are not finalized and may undergo breaking changes, so they are not recommended for production use.
@@ -39,9 +40,9 @@ Get-Module -Name 'MSc365.Idp.Toolbox'
 <summary>Example: Get-Module output</summary>
 
 ```text
-ModuleType Version    PreRelease Name            ExportedCommands
----------- -------    ---------- ----            ----------------
-Script     0.1.0      prev1      MSc365.Idp.Toolbox  New-RandomPassword
+ModuleType Version    PreRelease Name                ExportedCommands
+---------- -------    ---------- ----                ----------------
+Script     0.1.0                 MSc365.Idp.Toolbox  New-RandomPassword
 ```
 </details>
 
@@ -80,5 +81,5 @@ Invoke-Pester -Path .\MSc365.Idp.Toolbox\Tests\
 .\build\build.ps1
 
 # Build and publish
-.\build\build.ps1 -Version '0.1.0-prev1' -Publish -ApiKey $ApiKey
+.\build\build.ps1 -Version '0.1.0' -Publish -ApiKey $ApiKey
 ```
