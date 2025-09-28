@@ -16,7 +16,26 @@ All notable changes to this module will be documented in this file.
 
 ### Breaking Changes
 - _None_
+
+<br>
 -->
+
+<!-- markdownlint-disable MD024 -->
+
+## [1.0.0] - 2025-09-28
+
+### Summary
+First none preview release of the MSc365.Idp.Toolbox PowerShell module.
+
+### What's Changed
+- docs: Improved some content in `README` file
+- chore: Update manifest for version 0.1.0
+- chore: Update changelog for version 0.1.0
+
+### Breaking Changes
+- _None_
+
+<br>
 
 ## [0.1.0-prev2] - 2025-09-27
 
