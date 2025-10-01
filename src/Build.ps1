@@ -49,8 +49,8 @@ Properties {
         # Folders
         'Tests',
         # Files
-        '*.Build.ps1',
-        '*.Settings.ps1',
+        'Build.ps1',
+        'Settings.ps1',
         'PSScriptAnalyzerSettings.psd1'
     )
 
