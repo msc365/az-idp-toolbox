@@ -64,10 +64,7 @@ ConvertFrom-SecureString -SecureString $customPassword -AsPlainText
 
 ## Requirements
 
-- **PowerShell**: 5.1 or later
-- **OS**: Windows, Linux, macOS
-- **.NET Framework**: 4.7.2 or later (Windows PowerShell)
-- **.NET Core**: 2.0 or later (PowerShell Core)
+- **PowerShell**: 7.4 or later
 
 ## Development
 
@@ -75,11 +72,11 @@ ConvertFrom-SecureString -SecureString $customPassword -AsPlainText
 
 ```powershell
 # Run tests
-Invoke-Pester -Path .\MSc365.Idp.Toolbox\Tests\
+Invoke-psake .\src\build.ps1 -taskList Test
 
 # Build module
-.\build\build.ps1
+Invoke-psake .\src\build.ps1 -taskList Build
 
 # Build and publish
-.\build\build.ps1 -Version '0.1.0' -Publish -ApiKey $ApiKey
+Invoke-psake .\src\build.ps1 -taskList Publish
 ```
