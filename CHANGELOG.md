@@ -22,7 +22,22 @@ All notable changes to this module will be documented in this file.
 
 <!-- markdownlint-disable MD024 -->
 
-## [1.0.0] - 2025-09-28
+## [0.2.0-alpha1] - 2025-10-01
+
+### Summary
+Major refactoring with new file structure, enhanced build system using `psake`, and PowerShell version requirement update.
+
+### What's Changed
+- feat: Add a new local build script with enhanced `psake` functionality
+- feat: New file structure, update module manifest, main script, and tests
+- chore: Update changelog for version 0.2.0-alpha1
+
+### Breaking Changes
+- Minimal PowerShell version requirement updated to 7.4
+
+<br>
+
+## [0.1.0] - 2025-09-28
 
 ### Summary
 First none preview release of the MSc365.Idp.Toolbox PowerShell module.
