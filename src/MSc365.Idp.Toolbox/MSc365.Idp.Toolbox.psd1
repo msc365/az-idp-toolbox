@@ -8,51 +8,51 @@
 
 @{
     # Script module or binary module file associated with this manifest.
-    RootModule             = 'MSc365.Idp.Toolbox.psm1'
+    RootModule           = 'MSc365.Idp.Toolbox.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '0.1.0'
+    ModuleVersion        = '0.1.0'
 
     # Supported PSEditions - Specify for better compatibility
-    CompatiblePSEditions   = @('Desktop', 'Core')
+    CompatiblePSEditions = 'Core'
 
     # ID used to uniquely identify this module
-    GUID                   = '725b7a9f-7858-43b1-876f-6db9fbc0f01e'
+    GUID                 = '725b7a9f-7858-43b1-876f-6db9fbc0f01e'
 
     # Author of this module
-    Author                 = 'Martin Swinkels'
+    Author               = 'Martin Swinkels'
 
     # Company or vendor of this module
-    CompanyName            = 'MSc365.eu Portugal'
+    CompanyName          = 'MSc365.eu, Portugal'
 
     # Copyright statement for this module
-    Copyright              = '(c) Martin Swinkels. All rights reserved.'
+    Copyright            = '(c) MSc365.eu. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description            = 'An experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud.'
+    Description          = 'An experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud.'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion      = '5.1'
+    PowerShellVersion    = '7.4'
 
     # Minimum version of Microsoft .NET Framework required by this module
-    DotNetFrameworkVersion = '4.7.2'
+    # DotNetFrameworkVersion = ''
 
     # Functions to export from this module - Be explicit for security
-    FunctionsToExport      = @(
+    FunctionsToExport    = @(
         'New-RandomPassword'
     )
 
     # Cmdlets to export from this module - Use empty array if none
-    CmdletsToExport        = @()
+    CmdletsToExport      = @()
 
     # Variables to export from this module - Use empty array if none
-    VariablesToExport      = @()
+    VariablesToExport    = @()
 
     # Aliases to export from this module - Use empty array if none
-    AliasesToExport        = @()
+    AliasesToExport      = @()
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess
-    PrivateData            = @{
+    PrivateData          = @{
         PSData = @{
             # Tags applied to this module for PowerShell Gallery discovery
             Tags                     = @('Azure', 'IDP', 'Toolbox', 'Utilities', 'Security', 'Password', 'DevOps', 'Platform')
@@ -64,22 +64,22 @@
             ProjectUri               = 'https://github.com/msc365/az-idp-toolbox'
 
             # A URL to an icon representing this module
-            IconUri                  = 'https://github.com/msc365/az-idp-toolbox/blob/main/.assets/icon.png'
+            IconUri                  = 'https://raw.githubusercontent.com/msc365/az-idp-toolbox/main/.assets/icon.png'
 
             # ReleaseNotes of this module
             ReleaseNotes             = 'https://github.com/msc365/az-idp-toolbox/blob/main/CHANGELOG.md'
 
             # Prerelease string of this module
-            # Prerelease               = 'alpha'
+            # Prerelease = 'beta1'
 
             # Flag to indicate whether the module requires explicit user acceptance
             RequireLicenseAcceptance = $false
-
-            # Minimum version of PowerShell required
-            PowerShellVersion        = '5.1'
         }
     }
 
     # HelpInfo URI of this module
-    HelpInfoURI            = 'https://github.com/msc365/az-idp-toolbox/blob/main/README.md'
+    # HelpInfoURI = ''
+
+    # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
+    # DefaultCommandPrefix = ""
 }
