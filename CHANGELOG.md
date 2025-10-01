@@ -30,6 +30,7 @@ Major refactoring with new file structure, enhanced build system using `psake`, 
 ### What's Changed
 - feat: Add a new local build script with enhanced `psake` functionality
 - feat: New file structure, update module manifest, main script, and tests
+- chore: Update requirements and build instructions in README file
 - chore: Update changelog for version 0.2.0-alpha1
 
 ### Breaking Changes
