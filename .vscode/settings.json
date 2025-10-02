@@ -56,7 +56,7 @@
     "powershell.codeFormatting.whitespaceBetweenParameters": true,
     // Use a custom PowerShell Script Analyzer settings file for this workspace.
     // Relative paths for this setting are always relative to the workspace root dir.
-    "powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1",
+    "powershell.scriptAnalysis.settingsPath": "./src/PSScriptAnalyzerSettings.psd1",
     "javascript.preferences.quoteStyle": "single",
     "typescript.preferences.quoteStyle": "single",
     "yaml.format.singleQuote": true
