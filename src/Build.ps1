@@ -1,4 +1,19 @@
-﻿# // ----------------- //
+﻿<#
+.SYNOPSIS
+    Build script for PowerShell module.
+
+.DESCRIPTION
+    This script uses the PSake build automation tool to define tasks for building, testing,
+    and publishing PowerShell modules. It includes tasks for cleaning the build directory,
+    running unit tests, and packaging the module for release. The script also handles
+    versioning and publishing to the PowerShell Gallery.
+
+.NOTES
+    Requires PSake module: Install-Module -Name PSake -Scope CurrentUser -Force
+    Requires Pester module: Install-Module -Name Pester -Scope  CurrentUser -Force
+#>
+
+# // ----------------- //
 # // Module properties //
 # // ----------------- //
 

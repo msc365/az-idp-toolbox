@@ -1,8 +1,6 @@
 {
     "recommendations": [
         "bewhite.psrule-vscode",
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
         "ms-azuretools.vscode-azure-github-copilot",
         "ms-azuretools.vscode-bicep",
         "ms-vscode.powershell",

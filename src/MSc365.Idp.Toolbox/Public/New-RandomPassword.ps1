@@ -1,12 +1,3 @@
-<#PSScriptInfo
-
-.VERSION 1.0
-
-.GUID 21e37b80-3a9d-46c2-94cc-a755629a6ef3
-
-.AUTHOR martin.swinkels@msc365.eu
-
-#>
 function New-RandomPassword {
     <#
     .SYNOPSIS
