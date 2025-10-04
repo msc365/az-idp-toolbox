@@ -9,11 +9,13 @@ title: New-RandomPassword -->
 
 <!--markdownlint-disable no-duplicate-heading-->
 
+# New-RandomPassword
+
 Module: [MSc365.Idp.Toolbox Module](.\Index.md)
 
-Creates a random password
+## SYNOPSIS
 
-# New-RandomPassword
+Creates a random password
 
 ## SYNTAX
 
