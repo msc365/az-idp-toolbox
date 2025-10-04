@@ -1,5 +1,4 @@
-﻿---
-document type: module
+﻿<!-- document type: module
 Help Version: 0.2.0
 HelpInfoUri:
 Locale: en-US
@@ -8,7 +7,7 @@ Module Name: MSc365.Idp.Toolbox
 ms.date: 10/04/2025
 PlatyPS schema version: 2024-05-01
 title: MSc365.Idp.Toolbox Module
----
+-->
 
 # MSc365.Idp.Toolbox Module
 

@@ -1,13 +1,11 @@
-﻿---
-document type: cmdlet
+﻿<!-- document type: cmdlet
 external help file: MSc365.Idp.Toolbox-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: MSc365.Idp.Toolbox
 ms.date: 10/03/2025
 PlatyPS schema version: 2024-05-01
-title: New-RandomPassword
----
+title: New-RandomPassword -->
 
 <!--markdownlint-disable no-duplicate-heading-->
 
