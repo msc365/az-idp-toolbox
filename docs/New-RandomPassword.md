@@ -11,7 +11,7 @@ title: New-RandomPassword -->
 
 # New-RandomPassword
 
-Module: [MSc365.Idp.Toolbox Module](.\Index.md)
+Module: [MSc365.Idp.Toolbox Module](Commands.md)
 
 ## SYNOPSIS
 
