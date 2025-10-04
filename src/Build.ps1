@@ -65,6 +65,7 @@ Properties {
         'Tests',
         # Files
         'Build.ps1',
+        'PlatyPS.ps1',
         'Settings.ps1',
         'PSScriptAnalyzerSettings.psd1'
     )
