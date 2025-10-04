@@ -175,8 +175,8 @@ Length of the password to generate.
 Default is 16.
 
 ```yaml
-Type: SwitchParameter
-Default value: false
+Type: System.Int32
+Default value: 16
 Supports wildcards: false
 ```
 
