@@ -22,7 +22,7 @@ Properties {
     $script:buildVersion = [System.Version]'0.2.0'
 
     # Pre-release label (e.g. 'alpha1', 'beta1', 'rc1'). Set to $null for stable releases.
-    $script:prerelease = 'alpha1'
+    $script:prerelease = $null # 'alpha1'
 
     # The root path of the repository.
     $script:rootPath = (Get-Item $PSScriptRoot).Parent.FullName
