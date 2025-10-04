@@ -80,3 +80,10 @@ Invoke-psake .\src\build.ps1 -taskList Build
 # Build and publish
 Invoke-psake .\src\build.ps1 -taskList Publish
 ```
+
+### Clean up
+
+```powershell
+# Clean up module dir
+Invoke-psake .\src\Build.ps1 -taskList Clean
+```
