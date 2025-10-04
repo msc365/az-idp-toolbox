@@ -30,10 +30,13 @@ Stable release with enhanced build automation, CI/CD pipeline, documentation imp
 - feat: Add initial CI workflow configuration sample
 - feat: Add PlatyPS script for generating markdown help files
 - feat: Add psake as build automation tool
+- fix: Update IconUri to point to the correct asset location
 - fix: Update type and default value for parameter length
 - fix: Update module link references
 - fix: PlatyPS metadata configuration
 - fix: Update file patterns in Properties to match specific script names
+- chore: Set prerelease label to null for stable releases
+- chore: Update changelog for version 0.2.0 release
 - chore: Update icon asset with specific commit reference
 - chore: Some minor clean up and improvements
 - chore: Add GitHub release badge link in README file
