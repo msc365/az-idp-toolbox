@@ -20,6 +20,29 @@ All notable changes to this module will be documented in this file.
 <br>
 -->
 
+## [0.2.0] - 2025-10-04
+
+### Summary
+
+Stable release with enhanced build automation, CI/CD pipeline, documentation improvements, and various bug fixes. This release introduces psake build automation, PlatyPS documentation generation, and initial GitHub Actions workflow configuration.
+
+### What's Changed
+- feat: Add initial CI workflow configuration sample
+- feat: Add PlatyPS script for generating markdown help files
+- feat: Add psake as build automation tool
+- fix: Update type and default value for parameter length
+- fix: Update module link references
+- fix: PlatyPS metadata configuration
+- fix: Update file patterns in Properties to match specific script names
+- chore: Update icon asset with specific commit reference
+- chore: Some minor clean up and improvements
+- chore: Add GitHub release badge link in README file
+
+### Breaking Changes
+- _None_
+
+<br>
+
 <!-- markdownlint-disable MD024 -->
 
 ## [0.2.0-alpha1] - 2025-10-01
@@ -68,7 +91,7 @@ Bug fixes and improvements to the MSc365.Idp.Toolbox PowerShell module, includin
 ### Breaking Changes
 - _None_
 
-<!-- markdownlint-disable MD024 -->
+<br>
 
 ## [0.1.0-prev1] - 2025-09-26
 
