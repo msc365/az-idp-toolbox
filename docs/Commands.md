@@ -17,4 +17,5 @@ An experimental PowerShell module providing a comprehensive set of tools for Int
 
 | Cmdlet | Description |
 | --- | --- |
+| [Get-AzDevOpsAccessToken](Get-AzDevOpsAccessToken.md) | Get secure access token for Azure DevOps service principal |
 | [New-RandomPassword](New-RandomPassword.md) | Creates a random password |
