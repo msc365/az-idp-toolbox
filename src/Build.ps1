@@ -19,7 +19,7 @@
 
 Properties {
     # The current release version of the module.
-    $script:buildVersion = [System.Version]'0.2.0'
+    $script:buildVersion = [System.Version]'0.3.0'
 
     # Pre-release label (e.g. 'alpha1', 'beta1', 'rc1'). Set to $null for stable releases.
     $script:prerelease = $null # 'alpha1'
