@@ -5,7 +5,7 @@
 BeforeAll {
     # Import the module for testing
     $moduleName = 'MSc365.Idp.Toolbox'
-    $modulePath = (Get-Item $PSScriptRoot).Parent.FullName
+    $modulePath = (Get-Item $PSScriptRoot).Parent.Parent.FullName
 
     # Remove module if already loaded
     if (Get-Module -Name $moduleName -ErrorAction SilentlyContinue) {
