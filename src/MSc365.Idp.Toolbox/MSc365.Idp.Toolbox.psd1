@@ -39,7 +39,8 @@
 
     # Functions to export from this module - Be explicit for security
     FunctionsToExport    = @(
-        'New-RandomPassword'
+        'New-RandomPassword',
+        'Get-AzDevOpsAccessToken'
     )
 
     # Cmdlets to export from this module - Use empty array if none
