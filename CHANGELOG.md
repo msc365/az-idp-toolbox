@@ -2,6 +2,8 @@
 
 All notable changes to this module will be documented in this file.
 
+<!-- markdownlint-disable MD024 -->
+
 <!--
 ## [Unreleased] - YYYY-MM-DD
 
@@ -19,6 +21,28 @@ All notable changes to this module will be documented in this file.
 
 <br>
 -->
+
+## [0.3.0] - 2025-10-05
+
+### Summary
+
+This release introduces a new Azure DevOps integration feature with the `Get-AzDevOpsAccessToken` function, along with enhanced module structure and comprehensive testing. The release includes some improvements to the module organization.
+
+### What's Changed
+- feat: Add Get-AzDevOpsAccessToken function to retrieve Azure DevOps access tokens
+- feat: Export Get-AzDevOpsAccessToken function in module manifest
+- feat: Update file search patterns to include subdirectories for public and private functions
+- feat: Refactor New-RandomPassword function and tests
+- test: Add unit tests for Get-AzDevOpsAccessToken function
+- docs: Add help file for Get-AzDevOpsAccessToken cmdlet
+- fix: Add PlatyPS.ps1 to the build exclude
+- chore: Update module version to 0.3.0
+- chore: Update changelog for version 0.3.0 release
+
+### Breaking Changes
+- _None_
+
+<br>
 
 ## [0.2.0] - 2025-10-04
 
@@ -45,8 +69,6 @@ Stable release with enhanced build automation, CI/CD pipeline, documentation imp
 - _None_
 
 <br>
-
-<!-- markdownlint-disable MD024 -->
 
 ## [0.2.0-alpha1] - 2025-10-01
 
