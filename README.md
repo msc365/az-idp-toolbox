@@ -1,13 +1,12 @@
 # Internal Developer Platform (IDP) Toolbox for Azure
 
-[![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/msc365/az-idp-toolbox?style=flat&logo=github)](https://github.com/msc365/az-idp-toolbox/releases/latest)
-[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 [![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
+[![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
 This is an experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud over time.
 
-> [!WARNING]
+> [!NOTE]
 > This module provides experimental features, allowing you to test and provide feedback on new functionalities before they become stable. These features are not finalized and may undergo breaking changes, so they are not recommended for production use.
 
 ## Installation
@@ -16,10 +15,13 @@ This is an experimental PowerShell module providing a comprehensive set of tools
 
 ```powershell
 # Install for current user
+Install-Module -Name MSc365.Idp.Toolbox -Scope CurrentUser -Force
+
+# Install prerelease
 Install-Module -Name MSc365.Idp.Toolbox -Scope CurrentUser -AllowPrerelease -Force
 
 # Install for all users (requires admin)
-Install-Module -Name MSc365.Idp.Toolbox -Scope AllUsers -AllowPrerelease -Force
+Install-Module -Name MSc365.Idp.Toolbox -Scope AllUsers -Force
 ```
 
 ### From Source
@@ -30,7 +32,7 @@ git clone https://github.com/msc365/az-idp-toolbox.git
 cd az-idp-toolbox
 
 # Import the module
-Import-Module -Name .\MSc365.Idp.Toolbox
+Import-Module -Name .\src\MSc365.Idp.Toolbox
 
 # Verify the module
 Get-Module -Name 'MSc365.Idp.Toolbox'
@@ -61,6 +63,9 @@ $customPassword = New-RandomPassword -Length 32 -IncludeLowercase -IncludeUpperc
 # Reveal password
 ConvertFrom-SecureString -SecureString $customPassword -AsPlainText
 ```
+
+> [!TIP]
+> Discover all available cmdlets in the documentation [Commands](docs/Commands.md) overview page.
 
 ## Requirements
 
