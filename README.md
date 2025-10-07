@@ -81,25 +81,20 @@ Connect to an Azure DevOps organization using a personal access token (PAT). If 
 Connect-AdoOrganization -Organization 'my-org'
 ```
 
+### Get projects
+
+Get projects including details as `<Object[]>`.
+
+```powershell
+Get-AdoProject
+```
+
 ### Get project details
+
+Get project details as `<PSCustomObject>`.
 
 ```powershell
 Get-AdoProject -ProjectId 'my-project'
-```
-
-#### Output
-
-```text
-id             : 00000000-0000-0000-0000-000000000000
-name           : my-project
-description    : Some project description
-url            : https://dev.azure.com/my-org/_apis/projects/..
-collection     : @{id=; name=; url=; collectionUrl=}
-state          : wellFormed
-defaultTeam    : @{id=; name= Team; url=}
-revision       : 740
-visibility     : private
-lastUpdateTime : 01/01/0001 00:00:00
 ```
 
 ### Disconnect
