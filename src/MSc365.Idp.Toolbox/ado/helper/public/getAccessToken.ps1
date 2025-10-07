@@ -1,10 +1,10 @@
-﻿function Get-AzDevOpsAccessToken {
+﻿function Get-AdoAccessToken {
     <#
     .SYNOPSIS
     Get secure access token for Azure DevOps service principal.
 
     .DESCRIPTION
-    The Get-AzDevOpsAccessToken cmdlet gets an access token for the Azure DevOps service principal using the current Azure context or a specified tenant ID.
+    The function gets an access token for the Azure DevOps service principal using the current Azure context or a specified tenant ID.
 
     .PARAMETER TenantId
     The tenant ID to use for retrieving the access token. If not specified, the tenant ID from the current Azure context is used.
@@ -13,12 +13,12 @@
     System.Security.SecureString
 
     .EXAMPLE
-    Get-AzDevOpsAccessToken
+    Get-AdoAccessToken
 
     This example retrieves an access token for Azure DevOps using the tenant ID from the current Azure context.
 
     .EXAMPLE
-    Get-AzDevOpsAccessToken -TenantId "00000000-0000-0000-0000-000000000000"
+    Get-AdoAccessToken -TenantId "00000000-0000-0000-0000-000000000000"
 
     This example retrieves an access token for Azure DevOps using the specified tenant ID.
 
@@ -55,11 +55,16 @@
             $principalAppId = '499b84ac-1321-427f-aa17-267ca6975798'
             Write-Verbose ('Using Azure DevOps AppId: {0}' -f $principalAppId)
 
-            # Get access token `AsSecureString` for the Azure DevOps service principal
-            $tokenAsSecureString = (Get-AzAccessToken -ResourceUrl $principalAppId -TenantId ($TenantId)).Token
+            # Get the access token for the Azure DevOps service principal
+            $azAccessToken = Get-AzAccessToken -ResourceUrl $principalAppId -TenantId ($TenantId)
 
-            # Return the secure string
+            if ($null -eq $azAccessToken) { return $null }
+
+            # Convert token part to SecureString
+            $tokenAsSecureString = $azAccessToken.Token | ConvertTo-SecureString -AsPlainText -Force
+
             Write-Verbose ('Retrieved access token successfully.')
+
             return $tokenAsSecureString
 
         } catch {
