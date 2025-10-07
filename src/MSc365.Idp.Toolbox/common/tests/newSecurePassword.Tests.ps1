@@ -4,8 +4,8 @@
 
 BeforeAll {
     # Import the module for testing
-    $moduleName = 'MSc365.Idp.Toolbox'
-    $modulePath = (Get-Item $PSScriptRoot).Parent.Parent.FullName
+    $moduleName = 'common'
+    $modulePath = (Get-Item $PSScriptRoot).Parent.FullName
 
     # Remove module if already loaded
     if (Get-Module -Name $moduleName -ErrorAction SilentlyContinue) {
@@ -16,7 +16,7 @@ BeforeAll {
     Import-Module $modulePath -Force -ErrorAction Stop
 }
 
-Describe 'Module: MSc365.Idp.Toolbox' -Tags 'Module' {
+Describe 'Module: common' -Tags 'Module' {
     Context 'Module Import' {
         It 'Should import successfully' {
             Get-Module -Name $moduleName | Should -Not -BeNullOrEmpty
@@ -24,7 +24,7 @@ Describe 'Module: MSc365.Idp.Toolbox' -Tags 'Module' {
 
         It 'Should export expected functions' {
             $exportedFunctions = (Get-Module -Name $moduleName).ExportedFunctions.Keys
-            $exportedFunctions | Should -Contain 'New-RandomPassword'
+            $exportedFunctions | Should -Contain 'New-SecurePassword'
         }
 
         It 'Should have valid manifest' {
@@ -33,35 +33,35 @@ Describe 'Module: MSc365.Idp.Toolbox' -Tags 'Module' {
     }
 }
 
-Describe 'Function: New-RandomPassword' -Tags 'Function' {
+Describe 'Function: New-SecurePassword' -Tags 'Function' {
     Context 'Parameter Validation' {
         It 'Should accept valid length parameter' {
-            { New-RandomPassword -Length 16 } | Should -Not -Throw
+            { New-SecurePassword -Length 16 } | Should -Not -Throw
         }
 
         It 'Should reject invalid length (zero)' {
-            { New-RandomPassword -Length 0 } | Should -Throw
+            { New-SecurePassword -Length 0 } | Should -Throw
         }
 
         It 'Should reject invalid length (negative)' {
-            { New-RandomPassword -Length -1 } | Should -Throw
+            { New-SecurePassword -Length -1 } | Should -Throw
         }
 
         It 'Should reject invalid length (too large)' {
-            { New-RandomPassword -Length 999999 } | Should -Throw
+            { New-SecurePassword -Length 999999 } | Should -Throw
         }
     }
 
     Context 'Default Behavior' {
         It 'Should generate a secure string with default length' {
-            $result = New-RandomPassword
+            $result = New-SecurePassword
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should generate different passwords on multiple calls' {
-            $password1 = New-RandomPassword
-            $password2 = New-RandomPassword
+            $password1 = New-SecurePassword
+            $password2 = New-SecurePassword
 
             # Convert to plain text for comparison (only for testing)
             $ptr1 = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($password1)
@@ -88,7 +88,7 @@ Describe 'Function: New-RandomPassword' -Tags 'Function' {
         ) {
             param($length)
 
-            $result = New-RandomPassword -Length $length
+            $result = New-SecurePassword -Length $length
             $result.Length | Should -Be $length
             $result | Should -BeOfType 'System.Security.SecureString'
         }
@@ -96,31 +96,31 @@ Describe 'Function: New-RandomPassword' -Tags 'Function' {
 
     Context 'Character Type Specifications' {
         It 'Should work with only lowercase characters' {
-            $result = New-RandomPassword -Length 16 -IncludeLowercase
+            $result = New-SecurePassword -Length 16 -IncludeLowercase
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with only uppercase characters' {
-            $result = New-RandomPassword -Length 16 -IncludeUppercase
+            $result = New-SecurePassword -Length 16 -IncludeUppercase
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with only numbers' {
-            $result = New-RandomPassword -Length 16 -IncludeNumeric
+            $result = New-SecurePassword -Length 16 -IncludeNumeric
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with only special characters' {
-            $result = New-RandomPassword -Length 16 -IncludeSpecial
+            $result = New-SecurePassword -Length 16 -IncludeSpecial
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with combination of character types' {
-            $result = New-RandomPassword -Length 16 -IncludeLowercase -IncludeUppercase -IncludeNumeric
+            $result = New-SecurePassword -Length 16 -IncludeLowercase -IncludeUppercase -IncludeNumeric
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
@@ -128,14 +128,14 @@ Describe 'Function: New-RandomPassword' -Tags 'Function' {
 
     Context 'Error Handling' {
         It 'Should handle edge cases gracefully' {
-            { New-RandomPassword -Length 1 -IncludeLowercase } | Should -Not -Throw
+            { New-SecurePassword -Length 1 -IncludeLowercase } | Should -Not -Throw
         }
     }
 }
 
 AfterAll {
     # Clean up
-    if (Get-Module -Name $ModuleName -ErrorAction SilentlyContinue) {
-        Remove-Module -Name $ModuleName -Force
+    if (Get-Module -Name $moduleName -ErrorAction SilentlyContinue) {
+        Remove-Module -Name $moduleName -Force
     }
 }

@@ -1,10 +1,10 @@
-function New-RandomPassword {
+function New-SecurePassword {
     <#
     .SYNOPSIS
-    Creates a random password.
+    Create a secure random password.
 
     .DESCRIPTION
-    The New-RandomPassword cmdlet creates a secure random password of specified length and optional characteristics.
+    This cmdlet creates a secure random password of specified length and optional characteristics.
 
     .PARAMETER Length
     Length of the password to generate. Default is 16.
@@ -25,12 +25,12 @@ function New-RandomPassword {
     System.Security.SecureString
 
     .EXAMPLE
-    $password = New-RandomPassword
+    $password = New-SecurePassword
 
     This example generates a 16-character password with all character types included by default.
 
     .EXAMPLE
-    $password = New-RandomPassword -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
+    $password = New-SecurePassword -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
     ConvertFrom-SecureString $password -AsPlainText
 
     This example generates a 20-character password with lowercase, uppercase, and numeric characters, and then passes the SecureString to reveal the password as plain text.
