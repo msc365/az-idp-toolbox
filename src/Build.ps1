@@ -142,9 +142,16 @@ Task Build -Depends Clean, Init -RequiredVariables sourcePath, releasePath, modu
         Remove-Item -Path $_.FullName -Recurse -Force
     }
 
+    # Collect all public functions (exclude 'private' folders)
+    ($functionsToExport = Get-ChildItem -Path $script:releaseModulePath -Recurse -Directory | Where-Object Name -NE 'private' | ForEach-Object {
+        Get-ChildItem -Path ($_.FullName + '\*.ps1') | Select-Object -ExpandProperty BaseName
+    } | ForEach-Object { "$_" }) -join ', ' | Out-Null
+
+    # Update the module manifest with the new version and public functions
     $updateParams = @{
-        Path          = (Join-Path -Path $script:releaseModulePath -ChildPath ('{0}.psd1' -f $script:moduleName))
-        ModuleVersion = $script:buildVersion
+        Path              = (Join-Path -Path $script:releaseModulePath -ChildPath ('{0}.psd1' -f $script:moduleName))
+        ModuleVersion     = $script:buildVersion
+        FunctionsToExport = @($functionsToExport)
     }
 
     if ($null -ne $script:prerelease) {
