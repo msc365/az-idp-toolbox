@@ -69,12 +69,12 @@
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     NestedModules        = @(
-        'ado\ado.psd1'
+        'ado\ado.psd1',
         'common\common.psd1'
     )
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    # FunctionsToExport    = @()
+    FunctionsToExport    = @()
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport      = @()
@@ -90,7 +90,7 @@
 
     # List of all modules packaged with this module
     ModuleList           = @(
-        'ado\ado.psd1'
+        'ado\ado.psd1',
         'common\common.psd1'
     )
 
