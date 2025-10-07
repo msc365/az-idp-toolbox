@@ -22,6 +22,40 @@ All notable changes to this module will be documented in this file.
 <br>
 -->
 
+## [0.4.0-alpha] - 2025-10-07
+
+### Summary
+
+This major alpha release introduces comprehensive Azure DevOps integration capabilities to the MSc365.Idp.Toolbox module. The release adds a full suite of Azure DevOps cmdlets for managing core resources, repositories, policies, service endpoints, and more. This release includes important breaking changes with function renames for improved consistency.
+
+### What's Changed
+- feat!: Add new common module manifest with New-SecurePassword function with tests
+- feat!: Add helper module manifest with Azure DevOps connection functions including some tests
+- docs: Add documentation for ado/helper cmdlet
+- feat: Add ado/core cmdlet for managing processes, projects, and teams
+- feat: Add ado/feature cmdlets for managing feature state
+- feat: Add ado/git cmdlet for managing repositories
+- feat: Add ado/graph cmdlets for managing descriptors and groups
+- feat: Add ado/policy cmdlets for managing policy types and configurations
+- feat: Add ado/serviceEndpoints cmdlets for managing service endpoints
+- feat: Add ado module manifest and initial script for ado cmdlets loading
+- feat: Update module manifest and improve cmdlets loading script
+- feat: Update build version to 0.4.0 and refine module publishing process
+- fix: Update copyright information in LICENSE file
+- docs: Revise README for clarity and enhance cmdlet usage examples
+- docs: Update README to reflect changes in organization naming and command terminology
+- docs: Update README to clarify project retrieval commands and their outputs
+- docs: Comment out experimental features note in README for clarity
+- docs: Update Commands.md to enhance documentation clarity and detail
+- docs: Update links in Commands.md to ensure proper navigation to itself for unfinished docs
+- chore: Rename file name from `updatePolicyConfiguration` to `setPolicyConfiguration`
+
+### Breaking Changes
+- Renamed `New-RandomPassword` to `New-SecurePassword` for better clarity and naming consistency
+- Renamed `Get-AzDevOpsAccessToken` to `Get-AdoAccessToken` to use shorter "Ado" prefix convention
+
+<br>
+
 ## [0.3.0] - 2025-10-05
 
 ### Summary
