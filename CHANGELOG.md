@@ -49,6 +49,7 @@ This major alpha release introduces comprehensive Azure DevOps integration capab
 - docs: Update Commands.md to enhance documentation clarity and detail
 - docs: Update links in Commands.md to ensure proper navigation to itself for unfinished docs
 - chore: Rename file name from `updatePolicyConfiguration` to `setPolicyConfiguration`
+- docs: Update CHANGELOG.md for 0.4.0-alpha release, detailing new features, fixes, and breaking changes
 
 ### Breaking Changes
 - Renamed `New-RandomPassword` to `New-SecurePassword` for better clarity and naming consistency
