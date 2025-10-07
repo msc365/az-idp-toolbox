@@ -1,17 +1,19 @@
-﻿<!-- document type: cmdlet
-external help file: MSc365.Idp.Toolbox-Help.xml
+﻿<!--
+document type: cmdlet
+external help file: ado-Help.xml
 HelpUri: ''
-Locale: en-US
-Module Name: MSc365.Idp.Toolbox
-ms.date: 10/05/2025
+Locale: en-NL
+Module Name: ado
+ms.date: 10/06/2025
 PlatyPS schema version: 2024-05-01
-title: Get-AzDevOpsAccessToken -->
+title: Get-AdoAccessToken
+-->
 
 <!--markdownlint-disable no-duplicate-heading-->
 
-# Get-AzDevOpsAccessToken
+# Get-AdoAccessToken
 
-Module: [MSc365.Idp.Toolbox Module](Commands.md)
+Module: [MSc365.Idp.Toolbox Module](../../Commands.md)
 
 ## SYNOPSIS
 
@@ -22,7 +24,7 @@ Get secure access token for Azure DevOps service principal.
 ### __AllParameterSets
 
 ```text
-Get-AzDevOpsAccessToken
+Get-AdoAccessToken
   [[-TenantId] <string>]
   [<CommonParameters>]
 ```
@@ -34,22 +36,24 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-The Get-AzDevOpsAccessToken cmdlet gets an access token for the Azure DevOps service principal using the current Azure context or a specified tenant ID.
+This command gets an access token for the Azure DevOps service principal using the current Azure context or a specified tenant ID.
 
 ## EXAMPLES
 
-### EXAMPLE 1: Get the access token
+### EXAMPLE 1: Get access token using Azure context
 
+#### PowerShell
 ```powershell
-Get-AzDevOpsAccessToken
+Get-AdoAccessToken
 ```
 
 This example retrieves an access token for Azure DevOps using the tenant ID from the current Azure context.
 
-### EXAMPLE 2: Get the access token for a specified tenant
+### EXAMPLE 2: Get access token using tenant ID
 
+#### PowerShell
 ```powershell
-Get-AzDevOpsAccessToken -TenantId "00000000-0000-0000-0000-000000000000"
+Get-AdoAccessToken -TenantId "00000000-0000-0000-0000-000000000000"
 ```
 
 This example retrieves an access token for Azure DevOps using the specified tenant ID.
@@ -58,10 +62,7 @@ This example retrieves an access token for Azure DevOps using the specified tena
 
 ### -TenantId
 
-The tenant ID to use for retrieving the access token.
-If not specified, the tenant ID from the current Azure context is used.
-
-#### Parameter properties
+The tenant ID to use for retrieving the access token. If not specified, the tenant ID from the current Azure context is used.
 
 ```yaml
 Type: System.String

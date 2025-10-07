@@ -11,11 +11,31 @@ title: MSc365.Idp.Toolbox Module
 
 # MSc365.Idp.Toolbox Module
 
-An experimental PowerShell module providing a comprehensive set of tools for Internal Developer Platforms (IDPs) on Azure cloud.
+MSc365 IDP PowerShell: Toolbox cmdlets
+
+> [!NOTE]
+> Sorry, work in progress...
 
 ## Toolbox
 
 | Cmdlet | Description |
 | --- | --- |
-| [Get-AzDevOpsAccessToken](Get-AzDevOpsAccessToken.md) | Get secure access token for Azure DevOps service principal |
-| [New-RandomPassword](New-RandomPassword.md) | Creates a random password |
+| ado/core | Azure DevOps Core commands |
+| 🚧 | - |
+| ado/feature | Azure DevOps Feature commands |
+| 🚧 | - |
+| ado/git | Azure DevOps Git commands |
+| 🚧 | - |
+| ado/graph | Azure DevOps Graph commands |
+| 🚧 | - |
+| ado/helper | Azure DevOps Helper commands |
+| [Connect-AdoOrganization](ado/helper/Connect-AdoOrganization.md)| Connect to an Azure DevOps organization |
+| [Disconnect-AdoOrganization](ado/helper/Disconnect-AdoOrganization.md) | Disconnect from the Azure DevOps organization |
+| [Get-AdoAccessToken](ado/helper/Get-AdoAccessToken.md) | Get secure access token for Azure DevOps service principal |
+| ado/policy | Azure DevOps policy commands |
+| 🚧 | - |
+| ado/serviceEndpoint | Azure DevOps service endpoints commands |
+| 🚧 | - |
+| common | Some commands to make automation a bit easier 🤞 |
+| [New-SecurePassword](common/New-SecurePassword.md) | Create a secure random password |
+
