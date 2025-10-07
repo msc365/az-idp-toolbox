@@ -12,7 +12,7 @@ foreach ($folder in @('private', 'public')) {
         $files = Get-ChildItem -Path $root -Filter *.ps1
 
         # dot source each file
-        $files | Where-Object { $_.name -notlike '*.Tests.ps1' } |
+        $files | Where-Object { $_.name -NotLike '*.Tests.ps1' } |
             ForEach-Object { Write-Verbose ('  - {0}' -f $_.basename); . $_.FullName }
     }
 }
