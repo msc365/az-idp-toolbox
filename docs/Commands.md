@@ -14,28 +14,43 @@ title: MSc365.Idp.Toolbox Module
 MSc365 IDP PowerShell: Toolbox cmdlets
 
 > [!NOTE]
-> Sorry, work in progress...
+> Hey there! 👋 Some commands are still waiting for their documentation – I'm actively working on getting everything documented. Thanks for your patience!
 
 ## Toolbox
 
 | Cmdlet | Description |
 | --- | --- |
-| ado/core | Azure DevOps Core commands |
-| 🚧 | - |
-| ado/feature | Azure DevOps Feature commands |
-| 🚧 | - |
-| ado/git | Azure DevOps Git commands |
-| 🚧 | - |
-| ado/graph | Azure DevOps Graph commands |
-| 🚧 | - |
-| ado/helper | Azure DevOps Helper commands |
+| ado/core | |
+| [Get-AdoProcess](?) | 🚧 |
+| [Get-AdoProject](?) | 🚧 |
+| [New-AdoProject](?) | 🚧 |
+| [Remove-AdoProject](?) | 🚧 |
+| [Get-AdoTeam](?) | 🚧 |
+| [New-AdoTeam](?) | 🚧 |
+| [Set-AdoTeam](?) | 🚧 |
+| ado/feature | |
+| [Get-AdoFeatureState](?) | 🚧 |
+| [Set-AdoFeatureState](?) | 🚧 |
+| ado/git | |
+| [Get-AdoRepository](?) | 🚧 |
+| [New-AdoRepository](?) | 🚧 |
+| [Remove-AdoRepository](?) | 🚧 |
+| ado/graph | |
+| [Get-AdoDescriptor](?) | 🚧 |
+| [Get-AdoGroups](?) | 🚧 |
+| [New-AdoGroupMembership](?) | 🚧 |
+| ado/helper | |
 | [Connect-AdoOrganization](ado/helper/Connect-AdoOrganization.md)| Connect to an Azure DevOps organization |
 | [Disconnect-AdoOrganization](ado/helper/Disconnect-AdoOrganization.md) | Disconnect from the Azure DevOps organization |
 | [Get-AdoAccessToken](ado/helper/Get-AdoAccessToken.md) | Get secure access token for Azure DevOps service principal |
-| ado/policy | Azure DevOps policy commands |
-| 🚧 | - |
-| ado/serviceEndpoint | Azure DevOps service endpoints commands |
-| 🚧 | - |
-| common | Some commands to make automation a bit easier 🤞 |
+| ado/policy | |
+| [Get-AdoPolicyConfiguration](?) | 🚧 |
+| [New-AdoPolicyConfiguration](?) | 🚧 |
+| [Set-AdoPolicyConfiguration](?) | 🚧 |
+| [Get-AdoPolicyType](?) | 🚧 |
+| ado/serviceEndpoint | |
+| [Get-AdoServiceEndpoint](?) | 🚧 |
+| [New-AdoServiceEndpoint](?) | 🚧 |
+| [Remove-AdoServiceEndpoint](?) | 🚧 |
+| common | |
 | [New-SecurePassword](common/New-SecurePassword.md) | Create a secure random password |
-
