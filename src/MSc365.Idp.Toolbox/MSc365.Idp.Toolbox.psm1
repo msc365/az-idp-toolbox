@@ -1,25 +1,18 @@
-﻿#requires -Version 5.1
+﻿[CmdletBinding()]
+param()
 
-# Get public and private function definition files
-$public = @(Get-ChildItem -Path $PSScriptRoot\Public\**\*.ps1 -ErrorAction SilentlyContinue)
-$private = @(Get-ChildItem -Path $PSScriptRoot\Private\**\*.ps1 -ErrorAction SilentlyContinue)
+Write-Verbose $PSScriptRoot
+Write-Verbose 'Import all modules in sub folders'
 
-# Import all functions
-foreach ($import in @($public + $private)) {
-    try {
-        Write-Verbose "Importing $($import.FullName)"
-        . $import.FullName
-    } catch {
-        Write-Error "Failed to import function $($import.FullName): $_"
-        throw
+foreach ($folder in @('private', 'public')) {
+    $root = Join-Path -Path $PSScriptRoot -ChildPath $folder
+
+    if (Test-Path -Path $root) {
+        Write-Verbose ('  Processing folder {0}' -f $folder)
+        $files = Get-ChildItem -Path $root -Filter *.ps1
+
+        # dot source each file
+        $files | Where-Object { $_.name -notlike '*.Tests.ps1' } |
+            ForEach-Object { Write-Verbose ('  - {0}' -f $_.basename); . $_.FullName }
     }
-}
-
-# Export only public functions
-Export-ModuleMember -Function $public.BaseName -Verbose:$false
-
-# Module cleanup
-$ExecutionContext.SessionState.Module.OnRemove = {
-    # Cleanup when module is removed
-    Write-Verbose 'Cleaning up module resources'
 }
