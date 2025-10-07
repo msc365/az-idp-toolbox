@@ -6,8 +6,8 @@
 
 This PowerShell module provides a comprehensive set of automation and management tools for Internal Developer Platforms (IDPs) on Azure. It enables you to bootstrap and maintain Azure DevOps projects with end-to-end (e2e) **Role Based Access Control (RBAC)** governance through CI/CD pipelines.
 
-> [!NOTE]
-> This module provides experimental features, allowing you to test and provide feedback on new functionalities before they become stable. These features are not finalized and may undergo breaking changes, so they are not recommended for production use.
+<!-- > [!NOTE]
+> This module provides experimental features, allowing you to test and provide feedback on new functionalities before they become stable. These features are not finalized and may undergo breaking changes, so they are not recommended for production use. -->
 
 ## Installation
 
