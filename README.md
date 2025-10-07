@@ -78,7 +78,7 @@ Function        Get-AdoProject                                     0.1.0      MS
 Connect to an Azure DevOps organization using a personal access token (PAT). If you don't provide a PAT, the module will attempt to authenticate using the Azure DevOps service principal.
 
 ```powershell
-Connect-AdoOrganization -Organization 'my-ado-org'
+Connect-AdoOrganization -Organization 'my-org'
 ```
 
 ### Get project details
@@ -93,10 +93,10 @@ Get-AdoProject -ProjectId 'my-project'
 id             : 00000000-0000-0000-0000-000000000000
 name           : my-project
 description    : Some project description
-url            : https://dev.azure.com/my-ado-org/_apis/projects/00000000-0000-0000-0000-000000000000
-collection     : @{id=[..]; name=[..]; url=[..]; collectionUrl=[..]}
+url            : https://dev.azure.com/my-org/_apis/projects/..
+collection     : @{id=; name=; url=; collectionUrl=}
 state          : wellFormed
-defaultTeam    : @{id=[..]; name=[..] Team; url=[..]}
+defaultTeam    : @{id=; name= Team; url=}
 revision       : 740
 visibility     : private
 lastUpdateTime : 01/01/0001 00:00:00
@@ -110,13 +110,18 @@ This removes global variables related to the Azure DevOps connection, effectivel
 Disconnect-AdoOrganization
 ```
 
-## Cmdlet Naming
+## Naming Convention
 
-The functions in this module follow a consistent naming pattern that directly aligns with the Azure DevOps REST API structure and operations. This design approach provides several benefits:
+The commands in this module follow a consistent naming pattern that directly aligns with the Azure DevOps REST API structure and operations.
+
+This design approach provides several benefits:
+
+<details>
+<summary>More details</summary>
 
 ### Naming Pattern
 
-- **Prefix**: All Azure DevOps functions use the `Ado` prefix (e.g., `Get-AdoProject`, `New-AdoRepository`)
+- **Prefix**: All Azure DevOps commands use the `Ado` prefix (e.g., `Get-AdoProject`, `New-AdoRepository`)
 - **Verb**: Standard PowerShell verbs that map to REST API operations:
   - `Get-` → REST GET operations (retrieve resources)
   - `New-` → REST POST operations (create resources)
@@ -126,7 +131,7 @@ The functions in this module follow a consistent naming pattern that directly al
 
 ### REST API Alignment
 
-Each cmdlet corresponds directly to specific Azure DevOps REST API endpoints:
+Each command corresponds directly to specific Azure DevOps REST API endpoints:
 
 - `Get-AdoProject` → `/_apis/projects` ([API Reference](https://learn.microsoft.com/en-us/rest/api/azure/devops/core/projects/get))
 - `Get-AdoRepository` → `/_apis/git/repositories` ([API Reference](https://learn.microsoft.com/en-us/rest/api/azure/devops/git/repositories/get-repository))
@@ -134,10 +139,12 @@ Each cmdlet corresponds directly to specific Azure DevOps REST API endpoints:
 
 ### Benefits of this Approach
 
-- **Predictable**: If you know the Azure DevOps REST API, you can easily predict cmdlet names
-- **Consistent**: All functions follow the same naming convention
-- **Discoverable**: Use PowerShell's `Get-Command *-Ado*` to explore available functions
-- **Documented**: Each cmdlet includes links to the corresponding REST API documentation
+- **Predictable**: If you know the Azure DevOps REST API, you can easily predict command names
+- **Consistent**: All commands follow the same naming convention
+- **Discoverable**: Use PowerShell's `Get-Command *-Ado*` to explore available commands
+- **Documented**: Each command includes links to the corresponding REST API documentation
+
+</details>
 
 ## Requirements
 
