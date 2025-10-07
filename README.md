@@ -1,6 +1,6 @@
 # Internal Developer Platform (IDP) Toolbox for Azure
 
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/msc365/az-idp-toolbox?style=flat&logo=github)](https://github.com/msc365/az-idp-toolbox/releases/latest)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/msc365/az-idp-toolbox?include_prereleases&logo=github)](https://github.com/msc365/az-idp-toolbox/releases)
 [![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
