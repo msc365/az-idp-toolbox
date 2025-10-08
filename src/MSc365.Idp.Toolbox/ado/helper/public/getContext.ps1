@@ -1,6 +1,15 @@
 ﻿function Get-AdoContext {
     <#
     .SYNOPSIS
+    Get the current Azure DevOps connection context.
+
+    .DESCRIPTION
+    This function retrieves the current connection context for Azure DevOps, including the organization name and connection status.
+
+    .EXAMPLE
+    Get-AdoContext
+
+    Retrieves the current Azure DevOps connection context.
     #>
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable])]
