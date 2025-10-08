@@ -1,4 +1,8 @@
-﻿BeforeAll {
+﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+    'PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Required for Pester test mocking')]
+param()
+
+BeforeAll {
     # Import the module for testing
     $moduleName = 'helper'
     $modulePath = (Get-Item $PSScriptRoot).Parent.Parent.FullName
