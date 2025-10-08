@@ -17,6 +17,10 @@
 # // Module properties //
 # // ----------------- //
 
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+    'PSAvoidUsingWriteHost', '', Justification = 'Write-Host is allowed to display tests status messages') ]
+param()
+
 Properties {
     # The current release version of the module.
     $script:buildVersion = [System.Version]'0.4.0'
@@ -126,6 +130,27 @@ Task default -Depends Build
 Task Publish -Depends Test, PrePublish, PublishToGallery, PostPublish
 
 Task Test -Depends Build {
+
+    Write-Host ("PSScriptAnalyzer {0}`n" -f (Get-Module -Name PSScriptAnalyzer).Version.ToString()) -ForegroundColor Magenta
+    Write-Host 'Running script analyzer.' -ForegroundColor Magenta
+
+    # Get all script files (e.g., .ps1, .psd1 and .psm1 files)
+    $scriptCount = (Get-ChildItem -Path $script:sourcePath -Recurse -Include '*.ps1', '*.psd1', '*.psm1').Count
+
+    # Run script analyzer on scripts
+    $result = Invoke-ScriptAnalyzer -Path $script:sourcePath -Severity Warning
+
+    Write-Output $result
+
+    $errors = ($result | Where-Object Severity -EQ 'Error').Count
+    $warnings = ($result | Where-Object Severity -EQ 'Warning').Count
+    # $infos = ($result | Where-Object Severity -EQ 'Info').Count
+
+    Write-Host "`nEvaluation completed."
+    Write-Host "Evaluated: $($scriptCount), " -NoNewline -ForegroundColor Green
+    Write-Host "Violations: $($result.Count), Errors: $($errors), Warnings: $($warnings)`n" -ForegroundColor DarkGray
+    # Write-Host "Errors: $($errors), Warnings: $($warnings), Informative: $($infos)`n" -ForegroundColor DarkGray
+
     Import-Module Pester -PassThru | Out-Null
 
     $testPaths = (Get-ChildItem -Path $script:modulePath -Recurse -Filter '*.Tests.ps1').FullName
