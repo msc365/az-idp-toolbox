@@ -12,6 +12,7 @@
     This disconnects from the currently connected Azure DevOps organization by removing the relevant variables.
     #>
     [CmdletBinding()]
+    [OutputType([System.Collections.Hashtable])]
     param ()
 
     begin {
@@ -22,9 +23,16 @@
         try {
             $ErrorActionPreference = 'Stop'
 
+            $adoContext = Get-AdoContext
+
             Remove-Variable -Name 'AzDevOpsIsConnected' -Scope Global -ErrorAction SilentlyContinue
             Remove-Variable -Name 'AzDevOpsOrganization' -Scope Global -ErrorAction SilentlyContinue
             Remove-Variable -Name 'AzDevOpsHeaders' -Scope Global -ErrorAction SilentlyContinue
+
+            return $null -ne $adoContext ? @{
+                Organization = $adoContext.Organization
+                Connected    = $false
+            } : $null
 
         } catch {
             throw $_
