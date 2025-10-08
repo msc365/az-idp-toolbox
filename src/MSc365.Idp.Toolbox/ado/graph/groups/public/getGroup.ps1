@@ -1,4 +1,4 @@
-﻿function Get-AdoGroups {
+﻿function Get-AdoGroup {
     <#
     .SYNOPSIS
         Get groups in an Azure DevOps organization.
@@ -23,7 +23,7 @@
         https://learn.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list
 
     .EXAMPLE
-        $groups = Get-AdoGroups -ScopeDescriptor $projectDescriptor -SubjectTypes 'vssgp', 'aadgp'
+        $groups = Get-AdoGroup -ScopeDescriptor $projectDescriptor -SubjectTypes 'vssgp', 'aadgp'
 
     #>
     [CmdletBinding()]
