@@ -112,7 +112,7 @@
             ProjectUri   = 'https://github.com/msc365/az-idp-toolbox'
 
             # A URL to an icon representing this module.
-            IconUri      = 'https://raw.githubusercontent.com/msc365/az-idp-toolbox/3afcd2d6a61bf379f0b2e85c3ba7946352881c47/.assets/icon.png'
+            IconUri      = 'https://raw.githubusercontent.com/msc365/az-idp-toolbox/main/.assets/icon.png'
 
             # ReleaseNotes of this module
             ReleaseNotes = 'https://github.com/msc365/az-idp-toolbox/blob/main/CHANGELOG.md'
