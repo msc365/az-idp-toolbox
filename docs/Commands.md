@@ -43,6 +43,7 @@ MSc365 IDP PowerShell: Toolbox cmdlets
 | [Connect-AdoOrganization](ado/helper/Connect-AdoOrganization.md)| Connect to an Azure DevOps organization |
 | [Disconnect-AdoOrganization](ado/helper/Disconnect-AdoOrganization.md) | Disconnect from the Azure DevOps organization |
 | [Get-AdoAccessToken](ado/helper/Get-AdoAccessToken.md) | Get secure access token for Azure DevOps service principal |
+| [Get-AdoContext](Commands.md) | 🚧 |
 | ado/policy | |
 | [Get-AdoPolicyConfiguration](Commands.md) | 🚧 |
 | [New-AdoPolicyConfiguration](Commands.md) | 🚧 |
