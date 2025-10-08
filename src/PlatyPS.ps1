@@ -54,7 +54,7 @@ param (
     [string]$Locale = 'en-US',
 
     [Parameter()]
-    [switch]$WithModulePage = $true,
+    [switch]$WithModulePage,
 
     [Parameter()]
     [string]$OutputFolder = '.\docs',

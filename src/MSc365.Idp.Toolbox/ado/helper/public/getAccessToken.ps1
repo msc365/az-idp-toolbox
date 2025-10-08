@@ -28,6 +28,8 @@
     #>
     [CmdletBinding()]
     [OutputType([System.Security.SecureString])]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+        'PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Converting Azure API token response to SecureString for secure handling')]
     param (
         [Parameter()]
         [string]$TenantId = ''
