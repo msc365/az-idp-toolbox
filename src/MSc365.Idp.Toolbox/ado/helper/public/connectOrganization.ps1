@@ -31,6 +31,8 @@
     #>
     [CmdletBinding()]
     [OutputType([String])]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+        'PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification = 'Converting Azure API token response to SecureString for secure handling')]
     param (
         [Parameter(Mandatory)]
         [Alias('Org')]
@@ -56,37 +58,41 @@
         try {
             $ErrorActionPreference = 'Stop'
 
-            $AzDevOpsOrganization = ('https://dev.azure.com/{0}' -f $Organization)
+            $org = ('https://dev.azure.com/{0}' -f $Organization)
 
             if ($null -ne $PersonalAccessToken) {
-                $AzDevOpsHeaders = @{
+                $headers = @{
                     'Accept'        = 'application/json'
                     'Authorization' = 'Basic {0}' -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($PersonalAccessToken)"))
                 }
             } else {
                 $token = Get-AdoAccessToken
-                $AzDevOpsHeaders = @{
+                $headers = @{
                     'Accept'        = 'application/json'
                     'Authorization' = 'Bearer {0}' -f (ConvertFrom-SecureString -SecureString $token -AsPlainText)
                 }
             }
 
             $uriFormat = '{0}/_apis/projects?api-version={1}'
-            $azDevOpsUri = ($uriFormat -f [uri]::new($AzDevOpsOrganization), $ApiVersion)
+            $uri = ($uriFormat -f [uri]::new($org), $ApiVersion)
 
             $params = @{
                 Method  = 'GET'
-                Uri     = $azDevOpsUri
-                Headers = $AzDevOpsHeaders
+                Uri     = $uri
+                Headers = $headers
             }
 
             $response = Invoke-RestMethod @params -Verbose:$VerbosePreference
 
             if ($response.GetType().Name -ne 'String') {
 
+                $secureHeaders = ($headers |
+                        ConvertTo-Json -Depth 5 -Compress |
+                        ConvertTo-SecureString -AsPlainText -Force)
+
                 Set-Variable -Name 'AzDevOpsIsConnected' -Value $true -Scope Global;
-                Set-Variable -Name 'AzDevOpsOrganization' -Value $AzDevOpsOrganization -Scope Global;
-                Set-Variable -Name 'AzDevOpsHeaders' -Value $AzDevOpsHeaders -Scope Global;
+                Set-Variable -Name 'AzDevOpsOrganization' -Value $org -Scope Global;
+                Set-Variable -Name 'AzDevOpsHeaders' -Value $secureHeaders -Scope Global;
 
                 return ('Connected to {0}' -f $AzDevOpsOrganization)
             }
