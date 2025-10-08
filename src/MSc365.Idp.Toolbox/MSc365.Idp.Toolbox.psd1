@@ -74,7 +74,34 @@
     )
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport    = @()
+    FunctionsToExport    = @(
+        'New-SecurePassword'
+        'Connect-AdoOrganization'
+        'Disconnect-AdoOrganization'
+        'Get-AdoAccessToken'
+        'Get-AdoProject'
+        'New-AdoProject'
+        'Remove-AdoProject'
+        'Get-AdoTeam'
+        'New-AdoTeam'
+        'Set-AdoTeam'
+        'Get-AdoProcess'
+        'Get-AdoRepository'
+        'New-AdoRepository'
+        'Remove-AdoRepository'
+        'Get-AdoDescriptor'
+        'Get-AdoGroup'
+        'New-AdoGroupMembership'
+        'Get-AdoFeatureState'
+        'Set-AdoFeatureState'
+        'Get-AdoPolicyConfiguration'
+        'New-AdoPolicyConfiguration'
+        'Set-AdoPolicyConfiguration'
+        'Get-AdoPolicyType'
+        'Get-AdoServiceEndpoint'
+        'New-AdoServiceEndpoint'
+        'Remove-AdoServiceEndpoint'
+    )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport      = @()
