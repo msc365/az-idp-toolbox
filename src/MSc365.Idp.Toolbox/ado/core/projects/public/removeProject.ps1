@@ -50,7 +50,7 @@
             $params = @{
                 Method  = 'DELETE'
                 Uri     = $azDevOpsUri
-                Headers = $global:AzDevOpsHeaders
+                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
             }
 
             $response = Invoke-RestMethod @params -ContentType 'application/json' -Verbose:$VerbosePreference
@@ -61,7 +61,7 @@
                 Write-Verbose 'Checking project deletion status...'
                 Start-Sleep -Seconds 2
 
-                $response = Invoke-RestMethod -Method GET -Uri $response.url -Headers $global:AzDevOpsHeaders -Verbose:$VerbosePreference
+                $response = Invoke-RestMethod -Method GET -Uri $response.url -Headers $params.Headers -Verbose:$VerbosePreference
                 $status = $response.status
 
                 if ($status -eq 'failed') {

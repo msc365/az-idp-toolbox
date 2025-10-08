@@ -99,7 +99,7 @@
             $params = @{
                 Method  = 'POST'
                 Uri     = $azDevOpsUri
-                Headers = $global:AzDevOpsHeaders
+                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
                 Body    = $body
             }
 
@@ -111,7 +111,7 @@
                 Write-Verbose 'Checking project creation status...'
                 Start-Sleep -Seconds 2
 
-                $response = Invoke-RestMethod -Method GET -Uri $response.url -Headers $global:AzDevOpsHeaders
+                $response = Invoke-RestMethod -Method GET -Uri $response.url -Headers $params.Headers
                 $status = $response.status
 
                 if ($status -eq 'failed') {
