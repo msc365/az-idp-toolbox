@@ -78,6 +78,7 @@
         'New-SecurePassword'
         'Connect-AdoOrganization'
         'Disconnect-AdoOrganization'
+        'Get-AdoContext'
         'Get-AdoAccessToken'
         'Get-AdoProject'
         'New-AdoProject'
