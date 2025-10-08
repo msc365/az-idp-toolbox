@@ -58,7 +58,7 @@
             $status = $response.status
 
             while ($status -ne 'succeeded') {
-                Write-Host 'Checking project deletion status...'
+                Write-Verbose 'Checking project deletion status...'
                 Start-Sleep -Seconds 2
 
                 $response = Invoke-RestMethod -Method GET -Uri $response.url -Headers $global:AzDevOpsHeaders -Verbose:$VerbosePreference
