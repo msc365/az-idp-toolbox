@@ -5,11 +5,11 @@ Locale: en-US
 Module Name: MSc365.Idp.Toolbox
 ms.date: 10/03/2025
 PlatyPS schema version: 2024-05-01
-title: New-SecurePassword -->
+title: New-PasswordAsSecureString -->
 
 <!--markdownlint-disable no-duplicate-heading-->
 
-# New-SecurePassword
+# New-PasswordAsSecureString
 
 Module: [MSc365.Idp.Toolbox Module](../Commands.md)
 
@@ -24,7 +24,7 @@ Creates a random password
 ```text
 Syntax
 
-New-SecurePassword
+New-PasswordAsSecureString
   [[-Length] <int>]
   [-IncludeLowercase]
   [-IncludeUppercase]
@@ -41,7 +41,7 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-The New-SecurePassword cmdlet creates a secure random password of specified length and optional characteristics.
+The New-PasswordAsSecureString cmdlet creates a secure random password of specified length and optional characteristics.
 
 ## EXAMPLES
 
@@ -49,7 +49,7 @@ The New-SecurePassword cmdlet creates a secure random password of specified leng
 
 #### PowerShell
 ```powershell
-$password = New-SecurePassword
+$password = New-PasswordAsSecureString
 ```
 
 #### Output
@@ -63,7 +63,7 @@ This example generates a 16-character password with all character types included
 
 #### PowerShell
 ```powershell
-$password = New-SecurePassword -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
+$password = New-PasswordAsSecureString -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
 ConvertFrom-SecureString $password -AsPlainText
 ```
 #### Output
