@@ -78,7 +78,7 @@
             $params = @{
                 Method  = 'POST'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
                 Body    = $body
             }
 

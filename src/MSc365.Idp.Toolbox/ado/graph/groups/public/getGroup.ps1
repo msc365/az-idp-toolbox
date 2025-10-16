@@ -40,8 +40,8 @@
 
         [Parameter(Mandatory = $false)]
         [Alias('Api')]
-        [ValidateSet('7.1-preview.1', '7.2-preview.1')]
-        [string]$ApiVersion = '7.2-preview.1'
+        [ValidateSet('7.1-preview', '7.1-preview.1', '7.2-preview.1')]
+        [string]$ApiVersion = '7.1-preview'
     )
 
     begin {
@@ -72,7 +72,7 @@
             $params = @{
                 Method  = 'GET'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
             }
 
             $response = Invoke-RestMethod @params -Verbose:$VerbosePreference

@@ -22,7 +22,7 @@
         Optional. The API version to use.
 
     .LINK
-        https://learn.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.2
+        https://learn.microsoft.com/en-us/rest/api/azure/devops/core/teams/update
 
     .EXAMPLE
         $team = Set-AdoTeam -TeamId '00000000-0000-0000-0000-000000000000' -ProjectId 'my-project-001' -Name 'my-team-001'
@@ -44,8 +44,8 @@
 
         [Parameter(Mandatory = $false)]
         [Alias('Api')]
-        [ValidateSet('7.1-preview.2', '7.2-preview.3')]
-        [string]$ApiVersion = '7.2-preview.3'
+        [ValidateSet('7.1', '7.2-preview.3')]
+        [string]$ApiVersion = '7.1'
     )
 
     begin {
@@ -79,7 +79,7 @@
             $params = @{
                 Method  = 'PATCH'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
                 Body    = ($body | ConvertTo-Json)
             }
 
