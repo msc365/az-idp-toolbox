@@ -20,10 +20,22 @@ All notable changes to this module will be documented in this file.
 
 <br> -->
 
+## [0.5.1-alpha] - YYYY-MM-DD
+
+### Summary
+This patch renames the `New-SecurePassword` function to `New-PasswordAsSecureString` to better reflect its functionality and align with PowerShell naming conventions.
+
+### What's Changed
+- refactor!: Rename New-SecurePassword to New-PasswordAsSecureString for better clarity
+
+### Breaking Changes
+- Rename `New-SecurePassword` to `New-PasswordAsSecureString`
+
+<br>
+
 ## [0.5.0-alpha] - 2025-10-16
 
 ### Summary
-
 This release introduces a comprehensive end-to-end RBAC project bootstrapping script for Azure DevOps, along with Infrastructure as Code (IaC) templates for Azure authorization. The release also includes various improvements to cmdlet functionality, documentation updates, and development environment enhancements.
 
 ### What's Changed
