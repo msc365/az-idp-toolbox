@@ -24,7 +24,7 @@ Describe 'Module: common' -Tags 'Module' {
 
         It 'Should export expected functions' {
             $exportedFunctions = (Get-Module -Name $moduleName).ExportedFunctions.Keys
-            $exportedFunctions | Should -Contain 'New-SecurePassword'
+            $exportedFunctions | Should -Contain 'New-PasswordAsSecureString'
         }
 
         It 'Should have valid manifest' {
@@ -33,35 +33,35 @@ Describe 'Module: common' -Tags 'Module' {
     }
 }
 
-Describe 'Function: New-SecurePassword' -Tags 'Function' {
+Describe 'Function: New-PasswordAsSecureString' -Tags 'Function' {
     Context 'Parameter Validation' {
         It 'Should accept valid length parameter' {
-            { New-SecurePassword -Length 16 } | Should -Not -Throw
+            { New-PasswordAsSecureString -Length 16 } | Should -Not -Throw
         }
 
         It 'Should reject invalid length (zero)' {
-            { New-SecurePassword -Length 0 } | Should -Throw
+            { New-PasswordAsSecureString -Length 0 } | Should -Throw
         }
 
         It 'Should reject invalid length (negative)' {
-            { New-SecurePassword -Length -1 } | Should -Throw
+            { New-PasswordAsSecureString -Length -1 } | Should -Throw
         }
 
         It 'Should reject invalid length (too large)' {
-            { New-SecurePassword -Length 999999 } | Should -Throw
+            { New-PasswordAsSecureString -Length 999999 } | Should -Throw
         }
     }
 
     Context 'Default Behavior' {
         It 'Should generate a secure string with default length' {
-            $result = New-SecurePassword
+            $result = New-PasswordAsSecureString
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should generate different passwords on multiple calls' {
-            $password1 = New-SecurePassword
-            $password2 = New-SecurePassword
+            $password1 = New-PasswordAsSecureString
+            $password2 = New-PasswordAsSecureString
 
             # Convert to plain text for comparison (only for testing)
             $ptr1 = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($password1)
@@ -88,7 +88,7 @@ Describe 'Function: New-SecurePassword' -Tags 'Function' {
         ) {
             param($length)
 
-            $result = New-SecurePassword -Length $length
+            $result = New-PasswordAsSecureString -Length $length
             $result.Length | Should -Be $length
             $result | Should -BeOfType 'System.Security.SecureString'
         }
@@ -96,31 +96,31 @@ Describe 'Function: New-SecurePassword' -Tags 'Function' {
 
     Context 'Character Type Specifications' {
         It 'Should work with only lowercase characters' {
-            $result = New-SecurePassword -Length 16 -IncludeLowercase
+            $result = New-PasswordAsSecureString -Length 16 -IncludeLowercase
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with only uppercase characters' {
-            $result = New-SecurePassword -Length 16 -IncludeUppercase
+            $result = New-PasswordAsSecureString -Length 16 -IncludeUppercase
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with only numbers' {
-            $result = New-SecurePassword -Length 16 -IncludeNumeric
+            $result = New-PasswordAsSecureString -Length 16 -IncludeNumeric
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with only special characters' {
-            $result = New-SecurePassword -Length 16 -IncludeSpecial
+            $result = New-PasswordAsSecureString -Length 16 -IncludeSpecial
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
 
         It 'Should work with combination of character types' {
-            $result = New-SecurePassword -Length 16 -IncludeLowercase -IncludeUppercase -IncludeNumeric
+            $result = New-PasswordAsSecureString -Length 16 -IncludeLowercase -IncludeUppercase -IncludeNumeric
             $result | Should -BeOfType 'System.Security.SecureString'
             $result.Length | Should -Be 16
         }
@@ -128,7 +128,7 @@ Describe 'Function: New-SecurePassword' -Tags 'Function' {
 
     Context 'Error Handling' {
         It 'Should handle edge cases gracefully' {
-            { New-SecurePassword -Length 1 -IncludeLowercase } | Should -Not -Throw
+            { New-PasswordAsSecureString -Length 1 -IncludeLowercase } | Should -Not -Throw
         }
     }
 }

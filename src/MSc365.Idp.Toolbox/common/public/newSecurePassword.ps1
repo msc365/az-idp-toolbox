@@ -1,4 +1,4 @@
-function New-SecurePassword {
+function New-PasswordAsSecureString {
     <#
     .SYNOPSIS
     Create a secure random password.
@@ -25,12 +25,12 @@ function New-SecurePassword {
     System.Security.SecureString
 
     .EXAMPLE
-    $password = New-SecurePassword
+    $password = New-PasswordAsSecureString
 
     This example generates a 16-character password with all character types included by default.
 
     .EXAMPLE
-    $password = New-SecurePassword -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
+    $password = New-PasswordAsSecureString -Length 20 -IncludeLowercase -IncludeUppercase -IncludeNumeric
     ConvertFrom-SecureString $password -AsPlainText
 
     This example generates a 20-character password with lowercase, uppercase, and numeric characters, and then passes the SecureString to reveal the password as plain text.

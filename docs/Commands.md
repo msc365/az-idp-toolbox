@@ -43,4 +43,4 @@ MSc365 IDP PowerShell: Toolbox cmdlets
 | [New-AdoServiceEndpoint](Commands.md) | 🚧 |
 | [Remove-AdoServiceEndpoint](Commands.md) | 🚧 |
 | common | |
-| [New-SecurePassword](common/New-SecurePassword.md) | Create a secure random password |
+| [New-PasswordAsSecureString](common/New-PasswordAsSecureString.md) | Create a secure random password |
