@@ -45,7 +45,7 @@
         [Parameter(Mandatory = $false)]
         [Alias('Api')]
         [ValidateSet('7.1', '7.2-preview.1')]
-        [string]$ApiVersion = '7.2-preview.1'
+        [string]$ApiVersion = '7.1'
     )
 
     begin {

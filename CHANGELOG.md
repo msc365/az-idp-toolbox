@@ -4,8 +4,7 @@ All notable changes to this module will be documented in this file.
 
 <!-- markdownlint-disable MD024 -->
 
-<!--
-## [Unreleased] - YYYY-MM-DD
+<!-- ## [Unreleased] - YYYY-MM-DD
 
 ### Summary
 
@@ -19,8 +18,37 @@ All notable changes to this module will be documented in this file.
 ### Breaking Changes
 - _None_
 
+<br> -->
+
+## [0.5.0-alpha] - 2025-10-16
+
+### Summary
+
+This release introduces a comprehensive end-to-end RBAC project bootstrapping script for Azure DevOps, along with Infrastructure as Code (IaC) templates for Azure authorization. The release also includes various improvements to cmdlet functionality, documentation updates, and development environment enhancements.
+
+### What's Changed
+- feat: Add new `Invoke-AdoE2eRbacProject.ps1` script to bootstrap e2e RBAC Azure DevOps projects including sample configuration and documentation
+- feat: Add Infrastructure as Code (IaC) templates for Azure authorization role definitions with Bicep deployment scripts
+- feat: Add Get-AdoContext function to retrieve current Azure DevOps connection context
+- feat: Improve .vscode setup for better development experience
+- feat: Add FunctionsToExport in Build cmdlet for improved module building
+- fix: Update API version defaults and improve header handling across multiple cmdlets
+- fix: Enhance Disconnect-AdoOrganization functionality
+- fix: Update secure headers handling for better security
+- fix: Add functions to export in src module manifest for local testing
+- fix: Update IconUri to use the main branch for consistent asset references
+- docs: Update README.md with usage examples for Invoke-AdoE2eRbacProject.ps1 script
+- docs: Add Get-AdoContext function to command overview
+- docs: Update script help for Get-AdoContext command
+- docs: Update GitHub release badge to include prereleases
+- docs: Add comprehensive documentation for Scripts.md and Invoke-AdoE2eRbacProject.md
+- docs: Update CHANGELOG.md for 0.5.0-alpha release with new features and improvements
+- chore: Some sanitizing and clean up
+
+### Breaking Changes
+- _None_
+
 <br>
--->
 
 ## [0.4.0-alpha] - 2025-10-07
 

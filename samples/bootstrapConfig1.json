@@ -1,0 +1,258 @@
+{
+    "global": {
+        "prefix": "e2egov",
+        "nameSeparator": "-",
+        "regions": {
+            "westeurope": "weu",
+            "northeurope": "neu"
+        },
+        "tags": {
+            "public": "false",
+            "service": "demo-e2e-gov",
+            "iac": "bicep",
+            "ci": "azure-pipelines"
+        }
+    },
+    "devops": {
+        "organization": "msc365"
+    },
+    "projects": [
+        {
+            "name": "avengers",
+            "description": "Example: end-to-end governance demo",
+            "process": "agile",
+            "sourceControl": "git",
+            "visibility": "private",
+            "features": {
+                "boards": "enabled",
+                "repos": "enabled",
+                "pipelines": "enabled",
+                "testPlans": "disabled",
+                "artifacts": "disabled"
+            },
+            "groups": [
+                {
+                    "name": "admins",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "prd",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-avengers-weu",
+                    "groupMembership": [
+                        "Project Administrators"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "prd"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "prd"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "dev"
+                        }
+                    ]
+                },
+                {
+                    "name": "devs",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "dev",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-avengers-weu",
+                    "groupMembership": [
+                        "Contributors"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "dev"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "dev"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Reader",
+                            "scope": "prd"
+                        }
+                    ]
+                },
+                {
+                    "name": "members",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "{none}",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-avengers-weu",
+                    "groupMembership": [
+                        "Readers"
+                    ],
+                    "roleAssignments": []
+                }
+            ]
+        },
+        {
+            "name": "guardians",
+            "description": "Example: end-to-end governance demo",
+            "process": "agile",
+            "sourceControl": "git",
+            "visibility": "private",
+            "features": {
+                "boards": "enabled",
+                "repos": "enabled",
+                "pipelines": "enabled",
+                "testPlans": "disabled",
+                "artifacts": "disabled"
+            },
+            "groups": [
+                {
+                    "name": "admins",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "prd",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-guardians-weu",
+                    "groupMembership": [
+                        "Project Administrators"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "prd"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "prd"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "dev"
+                        }
+                    ]
+                },
+                {
+                    "name": "devs",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "dev",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-guardians-weu",
+                    "groupMembership": [
+                        "Contributors"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "dev"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "dev"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Reader",
+                            "scope": "prd"
+                        }
+                    ]
+                },
+                {
+                    "name": "members",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "{none}",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-guardians-weu",
+                    "groupMembership": [
+                        "Readers"
+                    ],
+                    "roleAssignments": []
+                }
+            ]
+        },
+        {
+            "name": "galaxy",
+            "description": "Example: shared resources, end-to-end governance demo",
+            "process": "agile",
+            "sourceControl": "git",
+            "visibility": "private",
+            "features": {
+                "boards": "disabled",
+                "repos": "enabled",
+                "pipelines": "enabled",
+                "testPlans": "disabled",
+                "artifacts": "enabled"
+            },
+            "groups": [
+                {
+                    "name": "admins",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "shared",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-galaxy-weu",
+                    "groupMembership": [
+                        "Project Administrators"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "shared"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "shared"
+                        }
+                    ]
+                },
+                {
+                    "name": "devs",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "shared",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-galaxy-weu",
+                    "groupMembership": [
+                        "Contributors"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Reader",
+                            "scope": "shared"
+                        }
+                    ]
+                },
+                {
+                    "name": "members",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "{none}",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-galaxy-weu",
+                    "groupMembership": [
+                        "Readers"
+                    ],
+                    "roleAssignments": []
+                }
+            ]
+        }
+    ]
+}

@@ -59,7 +59,7 @@
             $params = @{
                 Method  = 'DELETE'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
             }
 
             Invoke-RestMethod @params -Verbose:$VerbosePreference | Out-Null

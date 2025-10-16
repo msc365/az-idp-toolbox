@@ -50,7 +50,7 @@
             $params = @{
                 Method  = 'GET'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
             }
 
             $response = Invoke-RestMethod @params -Verbose:$VerbosePreference

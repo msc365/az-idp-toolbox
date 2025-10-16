@@ -46,7 +46,7 @@
         [Parameter(Mandatory = $false)]
         [Alias('api')]
         [ValidateSet('5.1', '7.1-preview.4', '7.2-preview.3')]
-        [string]$ApiVersion = '7.2-preview.3'
+        [string]$ApiVersion = '7.1'
     )
 
     begin {
@@ -75,7 +75,7 @@
             $params = @{
                 Method  = 'POST'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
                 Body    = $body
             }
 

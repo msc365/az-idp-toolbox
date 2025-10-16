@@ -417,5 +417,6 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-# Local build directory for module
-output/
+# Local config files for debugging
+*.debug.json
+*.debug.bicepparam

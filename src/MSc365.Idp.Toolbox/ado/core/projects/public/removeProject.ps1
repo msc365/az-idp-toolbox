@@ -27,7 +27,7 @@
         [Parameter(Mandatory = $false)]
         [Alias('Api')]
         [ValidateSet('7.1', '7.2-preview.1')]
-        [string]$ApiVersion = '7.2-preview.1'
+        [string]$ApiVersion = '7.1'
     )
 
     begin {
@@ -50,7 +50,7 @@
             $params = @{
                 Method  = 'DELETE'
                 Uri     = $azDevOpsUri
-                Headers = (ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable
+                Headers = ((ConvertFrom-SecureString -SecureString $global:AzDevOpsHeaders -AsPlainText) | ConvertFrom-Json -AsHashtable)
             }
 
             $response = Invoke-RestMethod @params -ContentType 'application/json' -Verbose:$VerbosePreference

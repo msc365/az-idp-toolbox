@@ -131,6 +131,10 @@ Task Publish -Depends Test, PrePublish, PublishToGallery, PostPublish
 
 Task Test -Depends Build {
 
+    if ((Get-Module -Name PSScriptAnalyzer) -eq $null) {
+        Import-Module -Name PSScriptAnalyzer -ErrorAction Stop
+    }
+
     Write-Host ("PSScriptAnalyzer {0}`n" -f (Get-Module -Name PSScriptAnalyzer).Version.ToString()) -ForegroundColor Magenta
     Write-Host 'Running script analyzer.' -ForegroundColor Magenta
 
