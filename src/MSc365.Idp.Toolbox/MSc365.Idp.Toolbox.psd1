@@ -27,10 +27,10 @@
     CompanyName          = 'MSc365.eu Portugal'
 
     # Copyright statement for this module
-    Copyright            = '(c) Martin Swinkels. All rights reserved.'
+    Copyright            = '2025 (c) Martin Swinkels. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description          = 'A PowerShell module providing a comprehensive set of automation and management tools for Internal Developer Platforms (IDPs) on Azure cloud'
+    Description          = 'This PowerShell module provides a comprehensive set of commands and scripts for Internal Developer Platforms (IDPs) on Azure. It enables you to bootstrap end-to-end RBAC governance in Azure when using CI/CD pipelines.'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion    = '7.4'

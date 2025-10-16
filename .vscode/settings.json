@@ -5,7 +5,8 @@
         "editor.detectIndentation": false
     },
     "[markdown]": {
-        "files.encoding": "utf8"
+        "files.encoding": "utf8",
+        "files.trimTrailingWhitespace": false
     },
     "[powershell]": {
         "editor.insertSpaces": true,
@@ -22,12 +23,16 @@
     "editor.insertSpaces": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "markdown.extension.orderedList.marker": "one",
+    "markdown.extension.toc.levels": "1..2",
     "markdown.extension.tableFormatter.enabled": false,
     "markdownlint.config": {
         "MD004": false,
         "MD007": {
             "indent": 2
+        },
+        "MD009": {
+            "br_spaces": 2,
+            "strict": false
         },
         "MD013": {
             "line_length": 999

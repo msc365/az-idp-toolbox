@@ -1,20 +1,9 @@
-﻿<!-- document type: module
-Help Version: 0.2.0
-HelpInfoUri:
-Locale: en-US
-Module Guid: 725b7a9f-7858-43b1-876f-6db9fbc0f01e
-Module Name: MSc365.Idp.Toolbox
-ms.date: 10/04/2025
-PlatyPS schema version: 2024-05-01
-title: MSc365.Idp.Toolbox Module
--->
-
-# MSc365.Idp.Toolbox Module
+﻿# MSc365.Idp.Toolbox Module
 
 MSc365 IDP PowerShell: Toolbox cmdlets
 
 > [!NOTE]
-> Hey there! 👋 Some commands are still waiting for their documentation – I'm actively working on getting everything documented. Thanks for your patience!
+> Hey there! 👋 I'm actively working on getting everything documented. Thanks for your patience!
 
 ## Toolbox
 
