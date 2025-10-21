@@ -8,6 +8,9 @@
 
 This PowerShell module provides a comprehensive set of commands and scripts for Internal Developer Platforms (IDPs) on Azure. It enables you to bootstrap end-to-end RBAC governance in Azure when using CI/CD pipelines. It provisions and configures Azure DevOps projects, Azure resources, Entra ID security groups, managed identities, service connections, and Azure role assignments based on a JSON configuration file.
 
+> [!NOTE]
+> This project is built upon the foundational concepts derived from [DevOps Governance](https://github.com/Azure/devops-governance) by [Julie Ng](https://github.com/julie-ng). I have enhanced it by incorporating the latest best practices. Specifically, I utilized **Bicep** as Infrastructure as Code (IaC) and used custom **PowerShell** modules to bootstrap Azure DevOps projects, Azure resources and Entra identities. Additionally, I implemented [workload identity federation](https://devblogs.microsoft.com/devops/workload-identity-federation-for-azure-deployments-is-now-generally-available/) for Azure Pipelines, moving away from traditional _service principals_ to improve security and manageability.
+
 <!-- > [!NOTE]
 > This module provides experimental features, allowing you to test and provide feedback on new functionalities before they become stable. These features are not finalized and may undergo breaking changes, so they are not recommended for production use. -->
 
