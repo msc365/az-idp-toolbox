@@ -20,7 +20,7 @@ All notable changes to this module will be documented in this file.
 
 <br> -->
 
-## [0.5.1-alpha] - YYYY-MM-DD
+## [0.5.1-alpha] - 2025-10-16
 
 ### Summary
 This patch renames the `New-SecurePassword` function to `New-PasswordAsSecureString` to better reflect its functionality and align with PowerShell naming conventions.
