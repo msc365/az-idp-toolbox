@@ -1,12 +1,18 @@
 <!-- omit from toc -->
 # Internal Developer Platform (IDP) Toolbox for Azure
 
+<!-- cSpell: words psake -->
+<!-- markdownlint-disable no-duplicate-heading -->
+
 [![GitHub release (latest)](https://img.shields.io/github/v/release/msc365/az-idp-toolbox?include_prereleases&logo=github)](https://github.com/msc365/az-idp-toolbox/releases)
 [![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/MSc365.Idp.Toolbox?include_prereleases)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 [![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/MSc365.Idp.Toolbox.svg)](https://www.powershellgallery.com/packages/MSc365.Idp.Toolbox)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
 This PowerShell module provides a comprehensive set of commands and scripts for Internal Developer Platforms (IDPs) on Azure. It enables you to bootstrap end-to-end RBAC governance in Azure when using CI/CD pipelines. It provisions and configures Azure DevOps projects, Azure resources, Entra ID security groups, managed identities, service connections, and Azure role assignments based on a JSON configuration file.
+
+> [!NOTE]
+> This project is built upon the foundational concepts derived from [DevOps Governance](https://github.com/Azure/devops-governance) by [Julie Ng](https://github.com/julie-ng) using Terraform. I have enhanced it by incorporating the latest best practices. Specifically, I utilized **Bicep** as Infrastructure as Code (IaC) where possible and used custom **PowerShell** modules to bootstrap Azure DevOps projects, Azure resources and Entra identities. Additionally, I implemented [workload identity federation](https://devblogs.microsoft.com/devops/workload-identity-federation-for-azure-deployments-is-now-generally-available/) for Azure Pipelines, moving away from traditional _service principals_ to improve security and manageability.
 
 <!-- > [!NOTE]
 > This module provides experimental features, allowing you to test and provide feedback on new functionalities before they become stable. These features are not finalized and may undergo breaking changes, so they are not recommended for production use. -->
@@ -40,11 +46,11 @@ Install-Module -Name MSc365.Idp.Toolbox -Scope AllUsers -Force
 
 ```powershell
 # Clone the repository
-git clone https://github.com/msc365/az-idp-toolbox.git
-cd az-idp-toolbox
+git clone 'https://github.com/msc365/az-idp-toolbox.git'
+cd 'az-idp-toolbox'
 
 # Import the module
-Import-Module -Name .\src\MSc365.Idp.Toolbox
+Import-Module -Name '.\src\MSc365.Idp.Toolbox'
 
 # Verify the module
 Get-Module -Name 'MSc365.Idp.Toolbox'
@@ -54,7 +60,7 @@ Get-Module -Name 'MSc365.Idp.Toolbox'
 
 ### Sign in to Azure
 
-To sign in, use the Connect-AzAccount cmdlet. If you're using Cloud Shell, you can skip this step since you're already authenticated for your environment, subscription, and tenant.
+To sign in, use the Connect-AzAccount cmdlet.
 
 ```powershell
   $azAccountSplat = @{
@@ -66,67 +72,123 @@ To sign in, use the Connect-AzAccount cmdlet. If you're using Cloud Shell, you c
 
 ### Find commands
 
-Explore the documentation [Commands](docs/Commands.md) overview page or discover commands, use the Get-Command cmdlet. For instance, to list all commands related to Azure DevOps:
+Explore the documentation [Commands](docs/Commands.md) overview page or use the Get-Command cmdlet. For instance, to list all commands related to Azure DevOps:
 
 ```powershell
-Get-Command *-Ado*
+Get-Command *Ado*
 ```
+
+<details>
+<summary>Reference table</summary>
 
 Here's a quick reference table of some `ado` functions:
 
 ```text
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Function        Connect-AdoOrganization                            0.1.0      MSc365.Idp.Toolbox
-Function        Disconnect-AdoOrganization                         0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoAccessToken                                 0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoDescriptor                                  0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoFeatureState                                0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoGroups                                      0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoPolicyConfiguration                         0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoPolicyType                                  0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoProcess                                     0.1.0      MSc365.Idp.Toolbox
-Function        Get-AdoProject                                     0.1.0      MSc365.Idp.Toolbox
+CommandType     Name                           Version    Source
+-----------     ----                           -------    ------
+Function        Connect-AdoOrganization        0.1.0      MSc365.Idp.Toolbox
+Function        Disconnect-AdoOrganization     0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoAccessToken             0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoContext                 0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoDescriptor              0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoFeatureState            0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoGroup                   0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoPolicyConfiguration     0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoPolicyType              0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoProcess                 0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoProject                 0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoRepository              0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoServiceEndpoint         0.1.0      MSc365.Idp.Toolbox
+Function        Get-AdoTeam                    0.1.0      MSc365.Idp.Toolbox
+Function        New-AdoGroupMembership         0.1.0      MSc365.Idp.Toolbox
+Function        New-AdoPolicyConfiguration     0.1.0      MSc365.Idp.Toolbox
+Function        New-AdoProject                 0.1.0      MSc365.Idp.Toolbox
+Function        New-AdoRepository              0.1.0      MSc365.Idp.Toolbox
+Function        New-AdoServiceEndpoint         0.1.0      MSc365.Idp.Toolbox
+Function        New-AdoTeam                    0.1.0      MSc365.Idp.Toolbox
+Function        Remove-AdoProject              0.1.0      MSc365.Idp.Toolbox
+Function        Remove-AdoRepository           0.1.0      MSc365.Idp.Toolbox
+Function        Remove-AdoServiceEndpoint      0.1.0      MSc365.Idp.Toolbox
+Function        Set-AdoFeatureState            0.1.0      MSc365.Idp.Toolbox
+Function        Set-AdoPolicyConfiguration     0.1.0      MSc365.Idp.Toolbox
+Function        Set-AdoTeam                    0.1.0      MSc365.Idp.Toolbox
 ```
+
+</details>
 
 ### Connect
 
-Connect to an Azure DevOps organization using a personal access token (PAT). If you don't provide a PAT, the module will attempt to authenticate using the Azure DevOps service principal.
+#### PowerShell
 
 ```powershell
-Connect-AdoOrganization -Organization 'my-org'
+Connect-AdoOrganization -Organization 'my-org' -PAT '******'
 ```
 
-### Get projects
-
-Get projects including details as `<Object[]>`.
-
-```powershell
-Get-AdoProject
-```
+This connects to an Azure DevOps organization using a personal access token (PAT). If you don't provide a PAT, the module will attempt to authenticate using the Azure DevOps service principal. Make sure the service principal (Azure Account) used has the required permissions in Azure DevOps.
 
 ### Get project details
 
-Get project details as `<PSCustomObject>`.
+#### PowerShell
 
 ```powershell
 Get-AdoProject -ProjectId 'my-project'
 ```
 
+This get project details as `<PSCustomObject>`.
+
+#### Output
+
+```text
+id             : 00000000-0000-0000-0000-000000000000
+name           : e2egov-avengers
+description    : Example: end-to-end governance demo
+url            : <https://dev.azure.com/msc365/_apis/projects/...>
+state          : wellFormed
+revision       : 1389
+_links         : @{self=; collection=; web=}
+visibility     : private
+defaultTeam    : @{id=00000000-0000-0000-0000-000000000000; name=Avengers;
+                 url=<https://dev.azure.com/msc365/_apis/projects/.../teams/...}>
+lastUpdateTime : 09/10/2025 11:14:35
+admins         : @{subscriptionId=...; subscriptionName=...; 
+                 environment=; securityGroup=; managedIdentity=; 
+                 serviceConnection=; roleAssignments=System.Object[]}
+devs           : @{subscriptionId=...; subscriptionName=...; 
+                 environment=; securityGroup=; managedIdentity=; 
+                 serviceConnection=; roleAssignments=System.Object[]}
+members        : @{subscriptionId=...; subscriptionName=...;
+                 environment=; securityGroup=;
+                 managedIdentity=; serviceConnection=; 
+                 roleAssignments=System.Object[]}
+teams          : {}
+```
+
+### Get projects
+
+#### PowerShell
+
+```powershell
+Get-AdoProject
+```
+
+This get a list of projects including details as `<Object[]>`.
+
 ### Disconnect
 
-This removes global variables related to the Azure DevOps connection, effectively disconnecting the session from the specified organization.
+#### PowerShell
 
 ```powershell
 Disconnect-AdoOrganization
 ```
+
+This removes global variables related to the Azure DevOps connection, effectively disconnecting the session from the specified organization.
 
 ## Bootstrap Script
 
 The [Invoke-AdoE2eRbacProject.ps1](./scripts/Invoke-AdoE2eRbacProject.ps1) script automates end-to-end RBAC governance in Azure when using CI/CD pipelines. It provisions and configures Azure DevOps projects, Azure resources, Entra ID security groups, managed identities, service connections, and Azure role assignments based on a JSON configuration file.
 
 > [!WARNING]
-> Before using the `Invoke-AdoE2eRbacProject.ps1` script, you must first deploy the `iac\authorization\role-definition\deploy.ps1` script once to set up the required role definitions.
+> Before using the `Invoke-AdoE2eRbacProject.ps1` script, you must first deploy the `iac\authorization\role-definition\deploy.ps1` script once to set up the required `Headless Owner (DevOps CI/CD)` role definition for this sample.
 
 ### Authentication
 
@@ -240,16 +302,11 @@ Each command corresponds directly to specific Azure DevOps REST API endpoints:
 - **PowerShell**: 7.4 or later
 - **Az.Accounts**: 3.0.5 or later
 
-### To run bootstrap script
-
-#### Microsoft Azure PowerShell
+### To run scripts
 
 - **Az.Accounts**: 3.0.5 or later
 - **Az.Resources**: 7.6.0 or later
 - **Az.ManagedServiceIdentity**: 1.2.1 or later
-
-#### Microsoft Graph
-
 - **Microsoft.Graph.Groups**: 2.31 or later
 - **Microsoft.Graph.Users**: 2.31 or later
 
