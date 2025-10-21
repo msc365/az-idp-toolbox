@@ -74,6 +74,7 @@
         'helper\helper.psd1'
         'feature\feature.psd1'
         'serviceEndpoint\serviceEndpoint.psd1'
+        'wit\wit.psd1'
     )
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
@@ -100,6 +101,7 @@
         'helper\helper.psd1'
         'feature\feature.psd1'
         'serviceEndpoint\serviceEndpoint.psd1'
+        'wit\wit.psd1'
     )
 
     # List of all files packaged with this module
