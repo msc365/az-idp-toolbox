@@ -1,0 +1,123 @@
+{
+    "global": {
+        "prefix": "e2egov",
+        "nameSeparator": "-",
+        "regions": {
+            "westeurope": "weu",
+            "northeurope": "neu"
+        },
+        "tags": {
+            "public": "false",
+            "service": "demo-e2e-gov",
+            "iac": "bicep",
+            "ci": "azure-pipelines"
+        }
+    },
+    "devops": {
+        "organization": "msc365"
+    },
+    "projects": [
+        {
+            "name": "fantastic-four",
+            "description": "Example: one project multiple teams, end-to-end governance demo",
+            "process": "agile",
+            "sourceControl": "git",
+            "visibility": "private",
+            "features": {
+                "boards": "enabled",
+                "repos": "enabled",
+                "pipelines": "enabled",
+                "testPlans": "disabled",
+                "artifacts": "disabled"
+            },
+            "teams": [
+                {
+                    "name": "Mister Fantastic",
+                    "description": "Example: governance e2e demo using multiple teams"
+                },
+                {
+                    "name": "Invisible Woman",
+                    "description": "Example: governance e2e demo using multiple teams"
+                },
+                {
+                    "name": "Human Torch",
+                    "description": "Example: governance e2e demo using multiple teams"
+                },
+                {
+                    "name": "The Thing",
+                    "description": "Example: governance e2e demo using multiple teams"
+                }
+            ],
+            "groups": [
+                {
+                    "name": "admins",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "prd",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-galaxy-weu",
+                    "groupMembership": [
+                        "Project Administrators"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "prd"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "prd"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "dev"
+                        }
+                    ]
+                },
+                {
+                    "name": "devs",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "dev",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-galaxy-weu",
+                    "groupMembership": [
+                        "Contributors"
+                    ],
+                    "roleAssignments": [
+                        {
+                            "objectType": "ServicePrincipal",
+                            "definitionName": "Headless Owner (DevOps CI/CD)",
+                            "scope": "dev"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Owner",
+                            "scope": "dev"
+                        },
+                        {
+                            "objectType": "Group",
+                            "definitionName": "Reader",
+                            "scope": "prd"
+                        }
+                    ]
+                },
+                {
+                    "name": "members",
+                    "description": "Example: governance e2e demo using Entra groups",
+                    "environment": "{none}",
+                    "location": "westeurope",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "subscriptionName": "sub-e2egov-galaxy-weu",
+                    "groupMembership": [
+                        "Readers"
+                    ],
+                    "roleAssignments": []
+                }
+            ]
+        }
+    ]
+}
