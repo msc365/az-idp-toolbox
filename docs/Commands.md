@@ -42,5 +42,10 @@ MSc365 IDP PowerShell: Toolbox cmdlets
 | [Get-AdoServiceEndpoint](Commands.md) | 🚧 |
 | [New-AdoServiceEndpoint](Commands.md) | 🚧 |
 | [Remove-AdoServiceEndpoint](Commands.md) | 🚧 |
+| ado/wit | |
+| [Get-AdoArea](Commands.md) | 🚧 |
+| [New-AdoArea](Commands.md) | 🚧 |
+| [Set-AdoArea](Commands.md) | 🚧 |
+| [Remove-AdoArea](Commands.md) | 🚧 |
 | common | |
 | [New-PasswordAsSecureString](common/New-PasswordAsSecureString.md) | Create a secure random password |
