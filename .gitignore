@@ -418,5 +418,7 @@ FodyWeavers.xsd
 *.msp
 
 # Local config files for debugging
+
+.local/
 *.debug.json
 *.debug.bicepparam
